@@ -1,0 +1,119 @@
+[
+    {
+        "nombre": "Bulbasaur",
+        "tipo": "Planta",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/0/00/Bulbasaur_XY.gif/revision/latest?cb=20140505211943",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/9/98/Bulbasaur_espalda_G6.gif/revision/latest?cb=20161107174913",
+        "movimientosDatos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    "Placaje",
+                    "Drenadoras",
+                    "Látigo Cepa",
+                    "Somnifero"
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    "Derribo",
+                    "Sintesis",
+                    "Látigo Cepa",
+                    "Doble Filo"
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    "Doble filo",
+                    "Rayo Solar",
+                    "Látigo Cepa",
+                    "Somnifero"
+                ]
+            }
+        ]
+    },
+
+    {
+        "nombre": "Ivysaur",
+        "tipo": "Planta",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a2/Ivysaur_XY.gif/revision/latest?cb=20140807012444",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/43/Ivysaur_espalda_G6.gif/revision/latest?cb=20150321002119",
+        "movimientosDatos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    "Placaje",
+                    "Drenadoras",
+                    "Polvo veneno",
+                    "Somnifero"
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [ "Derribo", "Sintesis","Hoja Afilada","Polvo Veneno"]
+            },
+            {
+                "nivel": 100,
+                "movimientos": ["Doble filo","Rayo Solar","Látigo Cepa","Somnifero"]
+  
+            }
+        ]
+    },
+
+    {
+        "nombre": "Venusaur",
+        "tipo": "Planta",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/46/Mega-Venusaur_XY.gif/revision/latest?cb=20140217042830",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/8/86/Mega-Venusaur_espalda_G6.gif/revision/latest?cb=20150321180200",
+        "movimientosDatos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    "Látigo Cepa",
+                    "Polvo veneno",
+                    "Derribo",
+                    "Somnifero"
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [ "Derribo", "Doble filo","Rayo Solar","Polvo Veneno"]
+            },
+            {
+                "nivel": 100,
+                "movimientos": ["Doble filo","Rayo Solar","Derribo","Somnifero"]
+  
+            }
+        ]
+    },
+    {
+        "nombre": "Charmander",
+        "tipo": "Fuego",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/f/f5/Charmander_XY.gif/revision/latest?cb=20140807015143",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/b/b6/Charmander_espalda_G6.gif/revision/latest?cb=20150321003402",
+        "movimientosDatos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    "Arañazo",
+                    "Ascua",
+                    "Garra metal",
+                    "Malicioso"
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [ "Ascua", "Garra metal","Furia dragón","Colmillo ígneo"]
+            },
+            {
+                "nivel": 100,
+                "movimientos": ["Doble filo","Derribo","Cuchillada","Colmillo ígneo"]
+  
+            }
+        ]
+    }
+
+
+]

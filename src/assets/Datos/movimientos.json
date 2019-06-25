@@ -1,0 +1,157 @@
+[
+    {
+        "nombre": "Placaje",
+        "tipo": "Normal",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 100,
+        "potencia": 40,
+        "pp": 35
+    },
+    {
+        "nombre": "Drenadoras",
+        "tipo": "Planta",
+        "categoria": "Estado",
+        "efecto": "robaSalud",
+        "precisión": 90,
+        "potencia": 0,
+        "pp": 10
+    },
+    {
+        "nombre": "Látigo Cepa",
+        "tipo": "Planta",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 100,
+        "potencia": 45,
+        "pp": 25
+    },
+    {
+        "nombre": "Somnifero",
+        "tipo": "Planta",
+        "categoria": "Estado",
+        "efecto": "duerme",
+        "precisión": 75,
+        "potencia": 0,
+        "pp": 15
+    },
+    {
+        "nombre": "Derribo",
+        "tipo": "Normal",
+        "categoria": "Fisico",
+        "efecto": "recibeDaño",
+        "precisión": 85,
+        "potencia": 90,
+        "pp": 20
+    },
+    {
+        "nombre": "Sintesis",
+        "tipo": "Planta",
+        "categoria": "Estado",
+        "efecto": "recuperaSalud",
+        "precisión": 100,
+        "potencia": 0,
+        "pp": 5
+    },
+    {
+        "nombre": "Doble filo",
+        "tipo": "Fisico",
+        "categoria": "Estado",
+        "efecto": "recibeDaño",
+        "precisión": 100,
+        "potencia": 120,
+        "pp": 15
+    },
+    {
+        "nombre": "Rayo Solar",
+        "tipo": "Planta",
+        "categoria": "Estado",
+        "efecto": "recargaTurno",
+        "precisión": 100,
+        "potencia": 120,
+        "pp": 10
+    },
+    {
+        "nombre": "Polvo veneno",
+        "tipo": "Veneno",
+        "categoria": "Especial",
+        "efecto": "envenena",
+        "precisión": 75,
+        "potencia": 0,
+        "pp": 35
+    },
+    {
+        "nombre": "Hoja Afilada",
+        "tipo": "Planta",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 95,
+        "potencia": 55,
+        "pp": 25
+    },
+    {
+        "nombre": "Arañazo",
+        "tipo": "Normal",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 100,
+        "potencia": 40,
+        "pp": 35
+    },
+    {
+        "nombre": "Ascua",
+        "tipo": "Fuego",
+        "categoria": "Especial",
+        "efecto": "quema",
+        "precisión": 100,
+        "potencia": 40,
+        "pp": 25
+    },
+    {
+        "nombre": "Garra metal",
+        "tipo": "Acero",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 95,
+        "potencia": 50,
+        "pp": 35
+    },
+    {
+        "nombre": "Malicioso",
+        "tipo": "Normal",
+        "categoria": "Estado",
+        "efecto": "bajaDefensa",
+        "precisión": 100,
+        "potencia": 0,
+        "pp": 30
+    },
+    {
+        "nombre": "Furia dragón",
+        "tipo": "Dragón",
+        "categoria": "Especial",
+        "efecto": null,
+        "precisión": 100,
+        "potencia": 40,
+        "pp": 10
+    },
+    {
+        "nombre": "Colmillo ígneo",
+        "tipo": "Fuego",
+        "categoria": "Fisico",
+        "efecto": "quema",
+        "precisión": 95,
+        "potencia": 65,
+        "pp": 15
+    },
+    {
+        "nombre": "Cuchillada",
+        "tipo": "Normal",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 100,
+        "potencia": 70,
+        "pp": 20
+    }
+
+    
+]
