@@ -1,25 +1,170 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
+
+<button style="text-align: left;margin:2%" class="btn btn-warning"
+  (click)="detieneSonido()">
+  <img id="sonido"
+    src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQwOCA0MDgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQwOCA0MDg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0idm9sdW1lLW11dGUiPgoJCTxwYXRoIGQ9Ik04OS4yNSwxMjcuNXYxNTNoMTAyTDMxOC43NSw0MDhWMGwtMTI3LjUsMTI3LjVIODkuMjV6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
+</button>
+<img *ngIf="jugar1Player" style="margin-bottom: 1%"
+  src="https://i.imgur.com/C9q8L82.png" style="width:
+  30%; height:30%"
+  border="0">
+
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+  <img *ngIf="!jugar1Player" src="https://i.imgur.com/C9q8L82.png" style="width:
+    60%; height:60%"
+    border="0">
 
-<br><br>
+  <!--Inicio Menu de botones principales -->
+  <div *ngIf="!jugar1Player" class="btnMenu">
 
-<div *ngFor="let poke of pokemons" >
-  <h4> {{poke.nombre}} </h4>
-  <img src="{{poke.imgDetras}}" style="margin-right:5%;" alt=""> 
-  <img src="{{poke.imgFrente}}" alt="">
-  <div>
-    <h6>Movimientos</h6>
-    <p *ngFor="let move of poke.movimientosDatos" >
-      {{move.movimientos}}
-    </p>
+    <button class="btn btn-outline-success btnMenuInside dropdown-toggle"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      1 jugador
+    </button>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" data-toggle="modal"
+        data-target="#exampleModal" (click)="setLevel(15)" type="button">Pokemons
+        Nivel 15</button>
+      <button class="dropdown-item" data-toggle="modal"
+        data-target="#exampleModal" (click)="setLevel(50)" type="button">Pokemons
+        Nivel 50</button>
+      <button class="dropdown-item" data-toggle="modal"
+        data-target="#exampleModal" (click)="setLevel(100)" type="button">Pokemons
+        Nivel 100</button>
+    </div>
+
+
+    <button class="btn btn-outline-success btnMenuInside">
+      Multijugador
+    </button>
+    <button (click)="sonidoComoJugar()" class="btn btn-outline-success
+      btnMenuInside">
+      ¿Cómo jugar?
+    </button>
+
   </div>
-  <hr>
-  <br><br>
+  <!--Fin Menu de botones principales -->
+  <br>
+  <div>
+  </div>
+
+  <!-- Inicio Div para la batalla pokemon -->
+  <div>
+    <div class="fondoBatalla" *ngIf="jugar1Player">
+      <div>
+        <div style="text-align: right; margin-bottom: 0.5%; width: 880px;
+          height: 290px;">
+          <img class="pokemonRival" style="padding-top: 21%; padding-right: 15%"
+            src="{{batalla.equipoRivalPokemon[0].imgFrente}}"
+            alt="">
+        </div>
+
+        <div style="text-align: left;width: 880px; height: 190px;">
+          <img class="pokemonJugador" style="padding-top: 4%;padding-left:23%;"
+            src="{{batalla.actualPokemon.imgDetras}}" alt="">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Final Div para la batalla pokemon -->
+
 </div>
 
+<div class="sidenav" *ngIf="jugar1Player" >
+    
+    <a href="#services">Luchar</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+<button style="visibility: hidden" id="btnModal" data-toggle="modal"
+  data-target="#equipo"></button>
+
+<!-- Incio Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <form>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Seleccione la cantidad de
+              pokemons a utilizar</label>
+            <select class="form-control" [(ngModel)]='selectValor' name="xd"
+              id="selectCantidad">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" style="text-align: center">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal"
+          (click)="jugarPlayer()">Jugar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal -->
+
+
+<!-- Incio Modal Pokemones-->
+<div class="modal fade" id="equipo" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="background-color: rgb(216, 207, 194)">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h6> Equipo Pokemon </h6>
+        <span>A continuación selecciona tu pokemón inicial para empezar la
+          batalla.</span><br>
+        <button data-dismiss="modal" class="btn btn-light"
+          (click)="setInicial(pokemon)" style="border: 1px solid black;
+          margin-right:2%;margin-top:2%" *ngFor="let pokemon of
+          batalla.equipoPokemon">
+          <img src="{{pokemon.sprite}}" alt="" srcset=""> {{pokemon.nombre}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Modal Pokemones-->
+
+
+
+  <!-- 
+
+  <div *ngFor="let poke of pokemons">
+    <h4> {{poke.nombre}} </h4>
+    <img (click)="suenaPokemon(poke.sonido)" src="{{poke.imgDetras}}"
+      style="margin-right:5%;" alt="">
+    <img (click)="suenaPokemon(poke.sonido)" src="{{poke.imgFrente}}" alt="">
+    <div>
+      <h6>Movimientos</h6>
+      <p *ngFor="let move of poke.movimientos">
+        <span style="color: blue">Nivel {{move.nivel}}</span><br>
+        <span *ngFor="let mov of move.movimientos">
+          {{mov.nombre}}
+        </span>
+      </p>
+    </div>
+    <hr>
+    <br><br>
+  </div> -->
+</div>
 
 <router-outlet></router-outlet>

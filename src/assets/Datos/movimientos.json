@@ -151,6 +151,60 @@
         "precisión": 100,
         "potencia": 70,
         "pp": 20
+    },
+    {
+        "nombre":"Pantalla humo",
+        "tipo": "Normal",
+        "categoria": "Estado",
+        "efecto": "bajaPrecision",
+        "precisión": 100,
+        "potencia": 0,
+        "pp": 20
+    },
+    {
+        "nombre":"Mega puño",
+        "tipo": "Normal",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 85,
+        "potencia": 80,
+        "pp": 20
+    },
+    {
+        "nombre": "Ataque ala",
+        "tipo": "Volador",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 100,
+        "potencia": 60,
+        "pp": 35
+    },
+    {
+        "nombre": "Garra dragón",
+        "tipo": "Dragón",
+        "categoria": "Fisico",
+        "efecto": null,
+        "precisión": 100,
+        "potencia": 80,
+        "pp": 15
+    },
+    {
+        "nombre": "Lanzallamas",
+        "tipo": "Fuego",
+        "categoria": "Especial",
+        "efecto": "quema",
+        "precisión": 100,
+        "potencia": 90,
+        "pp": 15
+    },
+    {
+        "nombre": "Vuelo",
+        "tipo":"Volador",
+        "categoria": "Fisico",
+        "efecto": "vuela",
+        "precisión": 95,
+        "potencia": 90,
+        "pp": 15
     }
 
     

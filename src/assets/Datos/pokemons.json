@@ -1,119 +1,549 @@
 [
     {
         "nombre": "Bulbasaur",
-        "tipo": "Planta",
+        "tipo1": "Planta",
+        "tipo2":"Veneno",
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/bulbasaur.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/3/3a/Grito_de_Bulbasaur.ogg/revision/latest?cb=20140731185900",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/0/00/Bulbasaur_XY.gif/revision/latest?cb=20140505211943",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/9/98/Bulbasaur_espalda_G6.gif/revision/latest?cb=20161107174913",
-        "movimientosDatos": [
+        "movimientos": [
             {
                 "nivel": 15,
                 "movimientos": [
-                    "Placaje",
-                    "Drenadoras",
-                    "Látigo Cepa",
-                    "Somnifero"
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Drenadoras"
+                    },
+                    {
+                        "nombre": "Látigo Cepa"
+                    },
+                    {
+                        "nombre": "Somnifero"
+                    }
                 ]
             },
             {
                 "nivel": 50,
                 "movimientos": [
-                    "Derribo",
-                    "Sintesis",
-                    "Látigo Cepa",
-                    "Doble Filo"
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Sintesis"
+                    },
+                    {
+                        "nombre": "Látigo Cepa"
+                    },
+                    {
+                        "nombre": "Doble Filo"
+                    }
                 ]
             },
             {
                 "nivel": 100,
                 "movimientos": [
-                    "Doble filo",
-                    "Rayo Solar",
-                    "Látigo Cepa",
-                    "Somnifero"
+                    {
+                        "nombre": "Doble filo"
+                    },
+                    {
+                        "nombre": "Rayo Solar"
+                    },
+                    {
+                        "nombre": "Látigo Cepa"
+                    },
+                    {
+                        "nombre": "Somnifero"
+                    }
                 ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[38,52],
+                "ataque":[19,33],
+                "defensa":[19,33],
+                "velocidad":[18,32],
+                "at.especial":[24,38],
+                "def.especial":[24,38]
+            },
+            {
+                "nivel":50,
+                "ps":[105,152],
+                "ataque":[54,101],
+                "defensa":[54,101],
+                "velocidad":[50,97],
+                "at.especial":[70,117],
+                "def.especial":[70,117]
+            },
+            {
+                "nivel":100,
+                "ps":[200,294],
+                "ataque":[103,197],
+                "defensa":[103,197],
+                "velocidad":[95,189],
+                "at.especial":[135,229],
+                "def.especial":[135,229]
             }
         ]
     },
-
     {
         "nombre": "Ivysaur",
-        "tipo": "Planta",
+        "tipo1": "Planta",
+        "tipo2":"Veneno",
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/ivysaur.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/7/79/Grito_de_Ivysaur.ogg/revision/latest?cb=20140731185958",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a2/Ivysaur_XY.gif/revision/latest?cb=20140807012444",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/43/Ivysaur_espalda_G6.gif/revision/latest?cb=20150321002119",
-        "movimientosDatos": [
+        "movimientos": [
             {
                 "nivel": 15,
                 "movimientos": [
-                    "Placaje",
-                    "Drenadoras",
-                    "Polvo veneno",
-                    "Somnifero"
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Drenadoras"
+                    },
+                    {
+                        "nombre": "Polvo veneno"
+                    },
+                    {
+                        "nombre": "Somnifero"
+                    }
                 ]
             },
             {
                 "nivel": 50,
-                "movimientos": [ "Derribo", "Sintesis","Hoja Afilada","Polvo Veneno"]
+                "movimientos": [
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Sintesis"
+                    },
+                    {
+                        "nombre": "Hoja Afilada"
+                    },
+                    {
+                        "nombre": "Polvo Veneno"
+                    }
+                ]
             },
             {
                 "nivel": 100,
-                "movimientos": ["Doble filo","Rayo Solar","Látigo Cepa","Somnifero"]
-  
+                "movimientos": [
+                    {
+                        "nombre": "Doble filo"
+                    },
+                    {
+                        "nombre": "Rayo Solar"
+                    },
+                    {
+                        "nombre": "Látigo Cepa"
+                    },
+                    {
+                        "nombre": "Somnifero"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[43,57],
+                "ataque":[23,37],
+                "defensa":[23,38],
+                "velocidad":[23,37],
+                "at.especial":[29,43],
+                "def.especial":[29,43]
+            },
+            {
+                "nivel":50,
+                "ps":[120,167],
+                "ataque":[67,114],
+                "defensa":[68,115],
+                "velocidad":[65,112],
+                "at.especial":[85,132],
+                "def.especial":[85,132]
+            },
+            {
+                "nivel":100,
+                "ps":[230,324],
+                "ataque":[129,233],
+                "defensa":[131,225],
+                "velocidad":[125,219],
+                "at.especial":[165,259],
+                "def.especial":[165,259]
             }
         ]
     },
-
     {
         "nombre": "Venusaur",
-        "tipo": "Planta",
+        "tipo1": "Planta",
+        "tipo2":"Veneno",
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/venusaur.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/c/cd/Grito_de_Venusaur.ogg/revision/latest?cb=20140731190112",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/46/Mega-Venusaur_XY.gif/revision/latest?cb=20140217042830",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/8/86/Mega-Venusaur_espalda_G6.gif/revision/latest?cb=20150321180200",
-        "movimientosDatos": [
+        "movimientos": [
             {
                 "nivel": 15,
                 "movimientos": [
-                    "Látigo Cepa",
-                    "Polvo veneno",
-                    "Derribo",
-                    "Somnifero"
+                    {
+                        "nombre": "Látigo Cepa"
+                    },
+                    {
+                        "nombre": "Polvo veneno"
+                    },
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Somnifero"
+                    }
                 ]
             },
             {
                 "nivel": 50,
-                "movimientos": [ "Derribo", "Doble filo","Rayo Solar","Polvo Veneno"]
+                "movimientos": [
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Doble filo"
+                    },
+                    {
+                        "nombre": "Rayo Solar"
+                    },
+                    {
+                        "nombre": "Polvo Veneno"
+                    }
+                ]
             },
             {
                 "nivel": 100,
-                "movimientos": ["Doble filo","Rayo Solar","Derribo","Somnifero"]
-  
+                "movimientos": [
+                    {
+                        "nombre": "Doble filo"
+                    },
+                    {
+                        "nombre": "Rayo Solar"
+                    },
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Somnifero"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[49,63],
+                "ataque":[29,43],
+                "defensa":[29,44],
+                "velocidad":[29,43],
+                "at.especial":[35,49],
+                "def.especial":[35,49]
+            },
+            {
+                "nivel":50,
+                "ps":[140,187],
+                "ataque":[87,134],
+                "defensa":[88,135],
+                "velocidad":[85,132],
+                "at.especial":[105,152],
+                "def.especial":[105,152]
+            },
+            {
+                "nivel":100,
+                "ps":[270,364],
+                "ataque":[169,263],
+                "defensa":[171,265],
+                "velocidad":[165,259],
+                "at.especial":[205,299],
+                "def.especial":[205,299]
             }
         ]
     },
     {
         "nombre": "Charmander",
-        "tipo": "Fuego",
+        "tipo1": "Fuego",
+        "tipo2":null,
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/charmander.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/4/47/Grito_de_Charmander.ogg/revision/latest?cb=20140731190207",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/f/f5/Charmander_XY.gif/revision/latest?cb=20140807015143",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/b/b6/Charmander_espalda_G6.gif/revision/latest?cb=20150321003402",
-        "movimientosDatos": [
+        "movimientos": [
             {
                 "nivel": 15,
                 "movimientos": [
-                    "Arañazo",
-                    "Ascua",
-                    "Garra metal",
-                    "Malicioso"
+                    {
+                        "nombre": "Arañazo"
+                    },
+                    {
+                        "nombre": "Ascua"
+                    },
+                    {
+                        "nombre": "Garra metal"
+                    },
+                    {
+                        "nombre": "Malicioso"
+                    }
                 ]
             },
             {
                 "nivel": 50,
-                "movimientos": [ "Ascua", "Garra metal","Furia dragón","Colmillo ígneo"]
+                "movimientos": [
+                    {
+                        "nombre": "Ascua"
+                    },
+                    {
+                        "nombre": "Garra metal"
+                    },
+                    {
+                        "nombre": "Furia dragón"
+                    },
+                    {
+                        "nombre": "Colmillo ígneo"
+                    }
+                ]
             },
             {
                 "nivel": 100,
-                "movimientos": ["Doble filo","Derribo","Cuchillada","Colmillo ígneo"]
-  
+                "movimientos": [
+                    {
+                        "nombre": "Doble filo"
+                    },
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Cuchillada"
+                    },
+                    {
+                        "nombre": "Colmillo ígneo"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[36,50],
+                "ataque":[20,34],
+                "defensa":[17,32],
+                "velocidad":[24,38],
+                "at.especial":[23,37],
+                "def.especial":[20,34]
+            },
+            {
+                "nivel":50,
+                "ps":[99,146],
+                "ataque":[57,104],
+                "defensa":[48,95],
+                "velocidad":[70,117],
+                "at.especial":[65,112],
+                "def.especial":[55,102]
+            },
+            {
+                "nivel":100,
+                "ps":[188,282],
+                "ataque":[109,203],
+                "defensa":[91,185],
+                "velocidad":[135,229],
+                "at.especial":[125,219],
+                "def.especial":[105,199]
+            }
+        ]
+    },
+
+    {
+        "nombre": "Charmeleon",
+        "tipo1": "Fuego",
+        "tipo2":null,
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/charmeleon.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/d/d0/Grito_de_Charmeleon.ogg/revision/latest?cb=20140731190256",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/9/96/Charmeleon_XY.gif/revision/latest?cb=20140807015208",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/45/Charmeleon_espalda_G6.gif/revision/latest?cb=20150321003448",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Arañazo"
+                    },
+                    {
+                        "nombre": "Ascua"
+                    },
+                    {
+                        "nombre": "Garra metal"
+                    },
+                    {
+                        "nombre": "Pantalla humo"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre": "Mega puño"
+                    },
+                    {
+                        "nombre": "Garra metal"
+                    },
+                    {
+                        "nombre": "Furia dragón"
+                    },
+                    {
+                        "nombre": "Colmillo ígneo"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre": "Mega puño"
+                    },
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Cuchillada"
+                    },
+                    {
+                        "nombre": "Colmillo ígneo"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[42,56],
+                "ataque":[24,38],
+                "defensa":[22,36],
+                "velocidad":[29,43],
+                "at.especial":[29,43],
+                "def.especial":[24,38]
+            },
+            {
+                "nivel":50,
+                "ps":[118,165],
+                "ataque":[69,116],
+                "defensa":[63,110],
+                "velocidad":[85,132],
+                "at.especial":[85,132],
+                "def.especial":[70,117]
+            },
+            {
+                "nivel":100,
+                "ps":[226,320],
+                "ataque":[133,227],
+                "defensa":[121,215],
+                "velocidad":[165,259],
+                "at.especial":[165,259],
+                "def.especial":[135,229]
+            }
+        ]
+    },
+    {
+        "nombre": "Charizard",
+        "tipo1": "Fuego",
+        "tipo2":"Volador",
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/charizard.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/5/5e/Grito_de_Charizard.ogg/revision/latest?cb=20140731190340",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/74/Charizard_XY.gif/revision/latest?cb=20140807015236",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/2/26/Charizard_espalda_G6.gif/revision/latest?cb=20150321003543",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Ataque ala"
+                    },
+                    {
+                        "nombre": "Ascua"
+                    },
+                    {
+                        "nombre": "Garra metal"
+                    },
+                    {
+                        "nombre": "Malicioso"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre": "Mega puño"
+                    },
+                    {
+                        "nombre": "Garra metal"
+                    },
+                    {
+                        "nombre": "Garra dragón"
+                    },
+                    {
+                        "nombre": "Colmillo ígneo"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre": "Lanzallamas"
+                    },
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre": "Vuelo"
+                    },
+                    {
+                        "nombre": "Colmillo ígneo"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[48,62],
+                "ataque":[30,44],
+                "defensa":[28,42],
+                "velocidad":[35,49],
+                "at.especial":[37,51],
+                "def.especial":[30,44]
+            },
+            {
+                "nivel":50,
+                "ps":[138,185],
+                "ataque":[89,136],
+                "defensa":[83,130],
+                "velocidad":[105,152],
+                "at.especial":[114,161],
+                "def.especial":[90,137]
+            },
+            {
+                "nivel":100,
+                "ps":[266,360],
+                "ataque":[173,267],
+                "defensa":[161,255],
+                "velocidad":[205,299],
+                "at.especial":[223,317],
+                "def.especial":[175,269]
             }
         ]
     }
-
-
 ]

@@ -1,0 +1,51 @@
+.btnMenu{
+    border: 1px solid yellow; 
+    margin: auto;
+    margin-top: 2%;
+    width: 50%;
+    height: 50%;
+    border-radius: 10%;
+    padding: 2%;
+}
+
+.btnMenuInside{
+    font-size: 150%;
+    margin-right: 5%;
+}
+
+.fondoBatalla{
+    margin:auto; 
+    width: 880px; 
+    height: 500px; 
+    background-image:url('https://pbs.twimg.com/media/DVMT-6OXcAE2rZY.jpg');
+}
+
+.sidenav {
+    height: 50%;
+    width: 225px;
+    position: fixed;
+    margin-top: 9%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(240, 236, 236);
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
