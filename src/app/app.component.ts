@@ -9,8 +9,9 @@ import {BatallaService} from '../app/servicios/batalla.service';
 })
 export class AppComponent {
 
-  pokemons: any;
-  movimientos: any;
+  pokemons=[];
+  movimientos=[];
+  listaMovimientosActuales=[];
   audio:any;
   suena= true;
   jugar1Player=false;
@@ -19,15 +20,17 @@ export class AppComponent {
   muestraPokemonCambio= false;
   muestraAtaquesPokemon= false;
   menuBatalla= true;
-  listaMovimientosActuales=[];
+  pokedex= false;
+  infoPokemon= false;
+  pokemonActualInfo:any;
  
 
   audioOpening="http://23.237.126.42/ost/pokemon-gameboy-sound-collection/vvdpydwp/101-opening.mp3";
 
   constructor(private obtiene: ObtieneDatosService, private batalla:BatallaService) {
 
-    this.audio = new Audio(this.audioOpening);
-    this.audio.play()
+    // this.audio = new Audio(this.audioOpening);
+    // this.audio.play()
 
     this.obtiene.getPokemons().subscribe(data => {
       this.pokemons = data;
@@ -39,20 +42,43 @@ export class AppComponent {
     });
   }
 
+  volverMenuPrincipal(){
+    this.inicioPartida= false;
+    this.pokedex= false;
+    this.muestraAtaquesPokemon= false;
+    this.muestraPokemonCambio= false;
+    this.menuBatalla= true;
+    this.jugar1Player= false;
+    this.infoPokemon= false;
+  }
+
+  volverMenuBatalla(){
+    this.inicioPartida= true;
+    this.muestraAtaquesPokemon= false;
+    this.muestraPokemonCambio= false;
+    this.menuBatalla= true;
+    (<HTMLImageElement>document.getElementById("sideMenu")).className= "sidenav";
+  }
+
+
   cambiarPokemon(){
     this.inicioPartida= false;
     this.muestraAtaquesPokemon= false;
     this.muestraPokemonCambio= true;
     this.menuBatalla= false;
+    if(this.batalla.equipoPokemon.length <=3){
+      (<HTMLImageElement>document.getElementById("sideMenu")).className= "sidenavcambiaPokemon1";
+    }else{
+      (<HTMLImageElement>document.getElementById("sideMenu")).className= "sidenavcambiaPokemon2";
+    }
+    
     
   }
 
   cambiaPokemonActual(pokemon){  // Cambia el pokemon actual por otro elegido desde la vista
     this.batalla.actualPokemon= pokemon;
     this.suenaPokemon(pokemon.sonido)
-    this.menuBatalla=true;
-    this.inicioPartida=true;
-    this.muestraPokemonCambio= false;
+    this.volverMenuBatalla();
   }
 
   lucharPokemon(){
@@ -62,7 +88,8 @@ export class AppComponent {
     this.menuBatalla= false;
     this.muestraAtaquesPokemon= true;
     this.muestraPokemonCambio= false;
-    console.log(this.listaMovimientosActuales)
+    (<HTMLImageElement>document.getElementById("sideMenu")).className= "sidenavLuchaPokemon";
+
   }
 
   obtieneTiposMovimientos(){
@@ -104,8 +131,11 @@ export class AppComponent {
   jugarPlayer(){
     this.elegirNpokemonsRandoms(this.selectValor);
     (<HTMLImageElement>document.getElementById("btnModal")).click();
-    
-    
+  }
+
+  verPokedex(){
+    this.infoPokemon= false;
+    this.pokedex=true;
   }
 
   setLevel(nivel){
@@ -113,9 +143,14 @@ export class AppComponent {
   }
 
   setInicial(pokemon){
-    this.audio.pause();
+    //this.audio.pause();
     this.batalla.actualPokemon=pokemon;
     this.jugar1Player= true;
+  }
+
+  verPokemon(pokemon){
+    this.pokemonActualInfo= pokemon;
+    this.infoPokemon= true;
   }
 
   //Sonidos
@@ -136,6 +171,11 @@ export class AppComponent {
 
   suenaPokemon(music){
     let audio = new Audio(music);
+    audio.play();
+  }
+
+  suenaClick(){
+    let audio = new Audio("http://www.cicorp.com/music/Microsoft/Office97/Utopia%20Close.WAV");
     audio.play();
   }
 

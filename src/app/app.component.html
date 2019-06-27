@@ -1,22 +1,28 @@
 
 
+<!-- Inicio Boton Sonido -->
 <button style="text-align: left;margin:2%" class="btn btn-warning"
   (click)="detieneSonido()">
   <img id="sonido"
     src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQwOCA0MDgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQwOCA0MDg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0idm9sdW1lLW11dGUiPgoJCTxwYXRoIGQ9Ik04OS4yNSwxMjcuNXYxNTNoMTAyTDMxOC43NSw0MDhWMGwtMTI3LjUsMTI3LjVIODkuMjV6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
 </button>
-<img *ngIf="jugar1Player" style="margin-bottom: 1%"
+<!-- Fin Boton Sonido -->
+
+<!-- Titulo Pequeño -->
+<img *ngIf="jugar1Player || pokedex" style="margin-bottom: 1%"
   src="https://i.imgur.com/C9q8L82.png" style="width:
   30%; height:30%"
   border="0">
 
 <div style="text-align:center">
-  <img *ngIf="!jugar1Player" src="https://i.imgur.com/C9q8L82.png" style="width:
+  <!-- Titulo Grande -->
+  <img *ngIf="!jugar1Player && !pokedex" src="https://i.imgur.com/C9q8L82.png"
+    style="width:
     60%; height:60%"
     border="0">
 
   <!--Inicio Menu de botones principales -->
-  <div *ngIf="!jugar1Player" class="btnMenu">
+  <div *ngIf="!jugar1Player && !pokedex" class="btnMenu">
 
     <button class="btn btn-outline-success btnMenuInside dropdown-toggle"
       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,21 +31,27 @@
 
     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
       <button class="dropdown-item" data-toggle="modal"
-        data-target="#exampleModal" (click)="setLevel(0)" type="button">Pokemons
+        data-target="#exampleModal" (click)="setLevel(0);suenaClick()"
+        type="button">Pokemons
         Nivel 15</button>
       <button class="dropdown-item" data-toggle="modal"
-        data-target="#exampleModal" (click)="setLevel(1)" type="button">Pokemons
+        data-target="#exampleModal" (click)="setLevel(1);suenaClick()"
+        type="button">Pokemons
         Nivel 50</button>
       <button class="dropdown-item" data-toggle="modal"
-        data-target="#exampleModal" (click)="setLevel(2)" type="button">Pokemons
+        data-target="#exampleModal" (click)="setLevel(2);suenaClick()"
+        type="button">Pokemons
         Nivel 100</button>
     </div>
-
 
     <button class="btn btn-outline-success btnMenuInside">
       Multijugador
     </button>
-    <button (click)="sonidoComoJugar()" class="btn btn-outline-success
+    <button (click)="verPokedex();suenaClick()" class="btn btn-outline-success
+      btnMenuInside">
+      Pokedex
+    </button>
+    <button (click)="suenaClick()" class="btn btn-outline-success
       btnMenuInside">
       ¿Cómo jugar?
     </button>
@@ -77,55 +89,81 @@
 
 </div>
 
-<div class="sidenav" *ngIf="jugar1Player">
+<div class="sidenav" id="sideMenu" *ngIf="jugar1Player">
   <div *ngIf="menuBatalla">
 
-    <button (click)="lucharPokemon()" style="margin-bottom: 10%" class="btn
+    <button (click)="lucharPokemon();suenaClick()" style="margin-bottom: 10%"
+      class="btn
       btn-success menuBtnBatalla">Luchar</button>
 
-    <button style="margin-bottom: 10%" (click)="cambiarPokemon()" class="btn
+    <button style="margin-bottom: 10%" (click)="cambiarPokemon();suenaClick()"
+      class="btn
       btn-warning menuBtnBatalla">Cambiar Pokemón</button>
 
-    <button style="margin-bottom:10%" class="btn btn-danger menuBtnBatalla">Rendirse</button>
+    <button style="margin-bottom:10%" data-toggle="modal"
+      data-target="#rendirse" class="btn btn-danger menuBtnBatalla">Rendirse</button>
     <hr style="border: 2px solid green">
   </div>
 
 
   <!-- Inicio contenido de menu batalla -->
   <div id="contenidoMenuBatalla">
-    <img *ngIf="inicioPartida" style="margin-left: 10%" id="logoPoke"
+    <!-- Logo pokebola -->
+    <img *ngIf="inicioPartida" style="margin-left:13%;margin-top:10%"
+      id="logoPoke"
       src="https://thumbs.dreamstime.com/t/logotipo-de-pokeball-aislado-en-el-fondo-blanco-88534439.jpg"
       alt="">
-    <div *ngIf="muestraPokemonCambio">
-      <button (click)="cambiaPokemonActual(pokemon)" id="btnEfectoGrande"
+
+    <!-- Inicio menu cambiar pokemon -->
+    <div *ngIf="muestraPokemonCambio" style="margin-top:3%">
+      <button class="btn btn-danger" style="display: block;
+        width:90%;margin:auto;">
+        <strong style="color:black" (click)="volverMenuBatalla();suenaClick()">
+          Volver atrás</strong>
+      </button>
+      <button (click)="cambiaPokemonActual(pokemon);suenaClick()"
+        id="btnEfectoGrande"
+        *ngFor="let pokemon of batalla.equipoPokemon"
         class="btn btn-light
         btnCambiaPokemon" [ngClass]="{
         'btnFuego':pokemon.tipo1 == 'Fuego',
         'btnAgua': pokemon.tipo1 == 'Agua',
         'btnPlanta': pokemon.tipo1 == 'Planta',
-        'btnNormal': move.tipo == 'Normal'
-        }" *ngFor="let pokemon of batalla.equipoPokemon">
+        'btnNormal': pokemon.tipo1 == 'Normal',
+        'btnSiniestro': pokemon.tipo1 == 'Siniestro'
+        }">
         <img src="{{pokemon.sprite}}" alt="" srcset=""> {{pokemon.nombre}}
         <br>
+        <!-- Barra de vida por pokemon -->
         <progress value="69" max="100"></progress>
       </button>
-
     </div>
-    <div style="margin-top:40%" *ngIf="muestraAtaquesPokemon">
+    <!-- Inicio menu cambiar pokemon -->
+
+    <!-- Inicio menu ataques pokemon -->
+    <div style="margin-top:10%" *ngIf="muestraAtaquesPokemon">
       <button class="btn btn-light btnLuchaPokemon" *ngFor="let move of
         listaMovimientosActuales;"
         [ngClass]="{
         'btnFuego':move.tipo == 'Fuego',
         'btnAgua': move.tipo == 'Agua',
         'btnPlanta': move.tipo == 'Planta',
-        'btnNormal': move.tipo == 'Normal'
+        'btnNormal': move.tipo == 'Normal',
+        'btnSiniestro': move.tipo == 'Siniestro'
         }">
         {{move.nombre}}
       </button>
+      <hr style="border:1px solid black">
+      <button class="btn btn-danger" style="display: block;
+        width:90%;margin:auto;">
+        <strong style="color:black" (click)="volverMenuBatalla();suenaClick()">
+          Volver atrás</strong>
+      </button>
     </div>
+    <!-- Final menu ataques pokemon -->
+
   </div>
   <!-- Final contenido de menu batalla -->
-
 </div>
 
 <button style="visibility: hidden" id="btnModal" data-toggle="modal"
@@ -160,12 +198,37 @@
       <div class="modal-footer" style="text-align: center">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
         <button type="button" class="btn btn-success" data-dismiss="modal"
-          (click)="jugarPlayer()">Jugar</button>
+          (click)="jugarPlayer();suenaClick()">Jugar</button>
       </div>
     </div>
   </div>
 </div>
 <!-- Fin Modal -->
+
+
+<!-- Incio Modal rendirse-->
+<div class="modal fade" id="rendirse" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <blockquote>
+          ¿Seguro que deseas rendirte?
+        </blockquote>
+      </div>
+      <div class="modal-footer" style="text-align: center">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal"
+          (click)="volverMenuPrincipal();suenaClick()">Si, me rindo!!!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Final modal rendirse -->
 
 
 <!-- Incio Modal Pokemones-->
@@ -182,7 +245,8 @@
         <span>A continuación selecciona tu pokemón inicial para empezar la
           batalla.</span><br>
         <button data-dismiss="modal" class="btn btn-light"
-          (click)="setInicial(pokemon)" style="border: 1px solid black;
+          (click)="setInicial(pokemon);suenaClick()" style="border: 1px solid
+          black;
           margin-right:2%;margin-top:2%" *ngFor="let pokemon of
           batalla.equipoPokemon">
           <img src="{{pokemon.sprite}}" alt="" srcset=""> {{pokemon.nombre}}
@@ -190,29 +254,51 @@
       </div>
     </div>
   </div>
-  <!-- Fin Modal Pokemones-->
-
-
-
-  <!-- 
-
-  <div *ngFor="let poke of pokemons">
-    <h4> {{poke.nombre}} </h4>
-    <img (click)="suenaPokemon(poke.sonido)" src="{{poke.imgDetras}}"
-      style="margin-right:5%;" alt="">
-    <img (click)="suenaPokemon(poke.sonido)" src="{{poke.imgFrente}}" alt="">
-    <div>
-      <h6>Movimientos</h6>
-      <p *ngFor="let move of poke.movimientos">
-        <span style="color: blue">Nivel {{move.nivel}}</span><br>
-        <span *ngFor="let mov of move.movimientos">
-          {{mov.nombre}}
-        </span>
-      </p>
-    </div>
-    <hr>
-    <br><br>
-  </div> -->
 </div>
+<!-- Fin Modal Pokemones-->
+
+
+<div *ngIf="pokedex && !infoPokemon" style="margin-left:5%">
+  <button (click)="volverMenuPrincipal();suenaClick()" style="display: block;
+    width:30%;float:left;margin-left: 2%" class="btn btn-danger">
+    Volver al menú principal
+  </button><br><br><br>
+  <div *ngFor="let poke of pokemons">
+    <div class="card" (click)="verPokemon(poke)" style="margin-left:2%;width:
+      15%;float:left;margin-bottom: 2%;padding: 1%;cursor:
+      pointer;border-radius: 10%;border:2px solid yellow">
+      <h5 style="text-align: center;color:blueviolet;">{{poke.nombre}}</h5>
+      <div class="card-body" style="width: 100px;height:100px">
+        <img class="card-img-top" style="margin-left:50%"
+          src="{{poke.imgFrente}}"
+          alt="Card image cap">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="infoPokemon">
+  <button (click)="verPokedex();suenaClick()" style="display: block;
+    width:30%;float:left;margin-left: 7%;" class="btn btn-danger">
+    Volver a la Pokedex
+  </button><br><br><br>
+  <div style="margin:auto; width:60%; height:900px; background-color: white;
+    padding:2%">
+    <h3 style="color:brown">{{pokemonActualInfo.nombre}}</h3><br>
+    <div style="border: 1px solid black; border-radius:5%; padding:1%; text-align:center">
+      <h6 style="float: left;margin-left:10%">Sprite</h6> <br>
+      <img  src="{{pokemonActualInfo.sprite}}" alt="">
+      <hr>
+      <h6 style="float: left;margin-left:10%">Imagen de frente</h6><br>
+      <img src="{{pokemonActualInfo.imgFrente}}" alt="">
+      <hr>
+      <h6 style="float: left;margin-left:10%">Imagen de espalda</h6><br>
+      <img src="{{pokemonActualInfo.imgDetras}}" alt="">
+    </div>
+
+  </div>
+
+</div>
+
 
 <router-outlet></router-outlet>
