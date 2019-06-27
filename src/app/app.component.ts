@@ -8,7 +8,6 @@ import {BatallaService} from '../app/servicios/batalla.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PokeBatallas';
 
   pokemons: any;
   movimientos: any;
@@ -16,6 +15,11 @@ export class AppComponent {
   suena= true;
   jugar1Player=false;
   selectValor=5;
+  inicioPartida= true;
+  muestraPokemonCambio= false;
+  muestraAtaquesPokemon= false;
+  menuBatalla= true;
+  listaMovimientosActuales=[];
  
 
   audioOpening="http://23.237.126.42/ost/pokemon-gameboy-sound-collection/vvdpydwp/101-opening.mp3";
@@ -35,6 +39,42 @@ export class AppComponent {
     });
   }
 
+  cambiarPokemon(){
+    this.inicioPartida= false;
+    this.muestraAtaquesPokemon= false;
+    this.muestraPokemonCambio= true;
+    this.menuBatalla= false;
+    
+  }
+
+  cambiaPokemonActual(pokemon){  // Cambia el pokemon actual por otro elegido desde la vista
+    this.batalla.actualPokemon= pokemon;
+    this.suenaPokemon(pokemon.sonido)
+    this.menuBatalla=true;
+    this.inicioPartida=true;
+    this.muestraPokemonCambio= false;
+  }
+
+  lucharPokemon(){
+    this.listaMovimientosActuales= [];
+    this.obtieneTiposMovimientos();
+    this.inicioPartida= false;
+    this.menuBatalla= false;
+    this.muestraAtaquesPokemon= true;
+    this.muestraPokemonCambio= false;
+    console.log(this.listaMovimientosActuales)
+  }
+
+  obtieneTiposMovimientos(){
+    let movimPokeActual = this.batalla.actualPokemon.movimientos[this.batalla.nivel].movimientos;
+    for (let index = 0; index < movimPokeActual.length; index++) {
+      let nombre = movimPokeActual[index].nombre;  
+      let movimientoObjeto = this.obtenerMovimientoPorNombre(nombre);
+      this.listaMovimientosActuales.push(movimientoObjeto)
+    }
+  }
+
+
   elegirNpokemonsRandoms(n){ //Recibe la cantidad de pokemons a uasr en batalla
     let tam= this.pokemons.length;
     this.batalla.equipoPokemon= []; 
@@ -47,7 +87,6 @@ export class AppComponent {
       this.batalla.equipoRivalPokemon.push(this.pokemons[num2-1]);
       c=c-1;
     }
-    //alert("Tus pokemons serán:\n "+ this.equipoPokemon +"\n Los pokemons rival serán:\n "+ this.equipoRivalPokemon);
     
   }
 
@@ -74,6 +113,7 @@ export class AppComponent {
   }
 
   setInicial(pokemon){
+    this.audio.pause();
     this.batalla.actualPokemon=pokemon;
     this.jugar1Player= true;
   }
@@ -95,8 +135,8 @@ export class AppComponent {
 
 
   suenaPokemon(music){
-    this.audio = new Audio(music);
-    this.audio.play();
+    let audio = new Audio(music);
+    audio.play();
   }
 
   

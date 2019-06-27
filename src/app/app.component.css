@@ -21,31 +21,109 @@
 }
 
 .sidenav {
-    height: 50%;
+    height: 85%;
     width: 225px;
     position: fixed;
-    margin-top: 9%;
+    margin-top: 7%;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(240, 236, 236);
+    background-color: rgb(255, 255, 255);
     overflow-x: hidden;
     padding-top: 20px;
+    border-radius: 10%;
+    border: 4px solid green;
   }
 
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+    .sidenav button {font-size: 18px;}
   }
 
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+
+  .menuBtnBatalla{
+    font-size: 20px;
+    margin:auto;
+    width: 90%;
+    color: black;
+    display: block;
+    border-radius: 40%;
+  }
+
+  .btnCambiaPokemon{
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 3%;
+    margin-top: 10%;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 5%;
     display: block;
   }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
+
+  .btnLuchaPokemon{
+    font-size: 20px;
+    margin: auto;
+    margin-bottom: 10%;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 5%;
+    display: block;
   }
+
+  #btnEfectoGrande:hover{
+    color: white
+  }  
+
+  /* Lista de colores para los botones por tipo */
+  .btnFuego{
+    background-color: rgb(218, 131, 131);
+  }
+  .btnAgua{
+    background-color: rgb(131, 149, 224);
+  }
+  .btnPlanta{
+    background-color: rgb(111, 231, 137);
+  }
+  .btnElectrico{
+    background-color: rgb(208, 230, 112);
+  }
+  .btnInsecto{
+    background-color: rgb(42, 153, 66);
+  }
+  .btnAcero{
+    background-color: rgb(166, 173, 168);
+  }
+  .btnTierra{
+    background-color: rgb(211, 151, 102);
+  }
+  .btnNormal{
+    background-color: rgb(122, 144, 116);
+  }
+
+  /* Estilos barra de progreo */
+  progress {
+    display: block; /* default: inline-block */
+    width: 85%;
+    padding: 4px;
+    border: 0 none;
+    background: rgb(36, 34, 34);
+    border-radius: 14px;
+  }
+
+  /* webkit */
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    progress {
+      height: 25px;
+    }
+  }
+
+  progress::-webkit-progress-value  {
+    background: rgb(130, 240, 86);
+  }
+  
+  progress::-webkit-progress-bar {
+    background: rgb(197, 195, 195);
+  }
+
+

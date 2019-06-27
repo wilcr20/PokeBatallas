@@ -38,7 +38,7 @@
                         "nombre": "Látigo Cepa"
                     },
                     {
-                        "nombre": "Doble Filo"
+                        "nombre": "Doble filo"
                     }
                 ]
             },
@@ -129,7 +129,7 @@
                         "nombre": "Hoja Afilada"
                     },
                     {
-                        "nombre": "Polvo Veneno"
+                        "nombre": "Polvo veneno"
                     }
                 ]
             },
@@ -220,7 +220,7 @@
                         "nombre": "Rayo Solar"
                     },
                     {
-                        "nombre": "Polvo Veneno"
+                        "nombre": "Polvo veneno"
                     }
                 ]
             },
@@ -545,5 +545,278 @@
                 "def.especial":[175,269]
             }
         ]
-    }
+    },
+    {
+        "nombre": "Squirtle",
+        "tipo1": "Agua",
+        "tipo2":null,
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/squirtle.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/a/a9/Grito_de_Squirtle.ogg/revision/latest?cb=20140731190417",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140807020034",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/e/e9/Squirtle_espalda_G6.gif/revision/latest?cb=20150321172944",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Látigo"
+                    },
+                    {
+                        "nombre": "Burbuja"
+                    },
+                    {
+                        "nombre": "Refugio"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Pistola agua"
+                    },
+                    {
+                        "nombre": "Burbuja"
+                    },
+                    {
+                        "nombre": "Mordisco"
+                    },
+                    {
+                        "nombre":"Látigo"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Pistola agua"
+                    },
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre":"Mordisco"
+                    },
+                    {
+                        "nombre": "Cabezazo"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[38,52],
+                "ataque":[19,33],
+                "defensa":[24,38],
+                "velocidad":[17,32],
+                "at.especial":[20,34],
+                "def.especial":[24,38]
+            },
+            {
+                "nivel":50,
+                "ps":[104,151],
+                "ataque":[53,100],
+                "defensa":[70,117],
+                "velocidad":[48,95],
+                "at.especial":[55,102],
+                "def.especial":[69,116]
+            },
+            {
+                "nivel":100,
+                "ps":[198,292],
+                "ataque":[101,195],
+                "defensa":[135,239],
+                "velocidad":[91,185],
+                "at.especial":[105,199],
+                "def.especial":[133,227]
+            }
+        ]
+    } ,
+    {
+        "nombre": "Wartortle",
+        "tipo1": "Agua",
+        "tipo2":null,
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/wartortle.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/3/33/Grito_de_Wartortle.ogg/revision/latest?cb=20140731190457",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a0/Wartortle_XY.gif/revision/latest?cb=20140807020154",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/76/Wartortle_espalda_G6.gif/revision/latest?cb=20150321173056",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Látigo"
+                    },
+                    {
+                        "nombre": "Pistola agua"
+                    },
+                    {
+                        "nombre": "Refugio"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Pistola agua"
+                    },
+                    {
+                        "nombre":"Cabezazo"
+                    },
+                    {
+                        "nombre": "Mordisco"
+                    },
+                    {
+                        "nombre":"Giro rápido"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Pistola agua"
+                    },
+                    {
+                        "nombre": "Hidropulso"
+                    },
+                    {
+                        "nombre":"Acua cola"
+                    },
+                    {
+                        "nombre":"Doble filo"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[42,56],
+                "ataque":[23,38],
+                "defensa":[29,43],
+                "velocidad":[22,36],
+                "at.especial":[24,38],
+                "def.especial":[29,43]
+            },
+            {
+                "nivel":50,
+                "ps":[119,166],
+                "ataque":[68,115],
+                "defensa":[85,132],
+                "velocidad":[63,110],
+                "at.especial":[70,117],
+                "def.especial":[85,132]
+            },
+            {
+                "nivel":100,
+                "ps":[228,322],
+                "ataque":[131,225],
+                "defensa":[165,259],
+                "velocidad":[121,215],
+                "at.especial":[135,229],
+                "def.especial":[165,259]
+            }
+        ]
+    } ,
+    {
+        "nombre": "Blastoise",
+        "tipo1": "Agua",
+        "tipo2":null,
+        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/blastoise.png",
+        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/6/67/Grito_de_Blastoise.ogg/revision/latest?cb=20140731190546",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/71/Blastoise_XY.gif/revision/latest?cb=20140807020232",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/d/d8/Blastoise_espalda_G6.gif/revision/latest?cb=20140111220000",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre":"Mordisco"
+                    },
+                    {
+                        "nombre": "Pistola agua"
+                    },
+                    {
+                        "nombre": "Refugio"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Pistola agua"
+                    },
+                    {
+                        "nombre":"Cabezazo"
+                    },
+                    {
+                        "nombre": "Mordisco"
+                    },
+                    {
+                        "nombre":"Surf"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Surf"
+                    },
+                    {
+                        "nombre": "Derribo"
+                    },
+                    {
+                        "nombre":"Megapatada"
+                    },
+                    {
+                        "nombre":"Hidropulso"
+                    }
+                ]
+            }
+        ],
+        "stats":[
+            {
+                "nivel":15,
+                "ps":[42,56],
+                "ataque":[23,38],
+                "defensa":[29,43],
+                "velocidad":[22,36],
+                "at.especial":[24,38],
+                "def.especial":[29,43]
+            },
+            {
+                "nivel":50,
+                "ps":[119,166],
+                "ataque":[68,115],
+                "defensa":[85,132],
+                "velocidad":[63,110],
+                "at.especial":[70,117],
+                "def.especial":[85,132]
+            },
+            {
+                "nivel":100,
+                "ps":[268,362],
+                "ataque":[171,265],
+                "defensa":[205,299],
+                "velocidad":[161,255],
+                "at.especial":[175,269],
+                "def.especial":[215,309]
+            }
+        ]
+    } 
 ]

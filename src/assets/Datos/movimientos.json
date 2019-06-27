@@ -66,7 +66,7 @@
         "nombre": "Rayo Solar",
         "tipo": "Planta",
         "categoria": "Estado",
-        "efecto": "recargaTurno",
+        "efecto":"esperaTurno",
         "precisión": 100,
         "potencia": 120,
         "pp": 10
@@ -205,6 +205,105 @@
         "precisión": 95,
         "potencia": 90,
         "pp": 15
+    },
+    {
+        "nombre": "Látigo",
+        "tipo":"Normal",
+        "categoria": "Estado",
+        "efecto":"bajaDefensa",
+        "precisión": 100,
+        "potencia": 0,
+        "pp": 30
+    },
+    {
+        "nombre": "Burbuja",
+        "tipo":"Agua",
+        "categoria":"Especial",
+        "efecto":null,
+        "precisión": 100,
+        "potencia": 40,
+        "pp": 30
+    },
+    {
+        "nombre": "Refugio",
+        "tipo":"Agua",
+        "categoria":"Especial",
+        "efecto":"subeDefensa",
+        "precisión": 100,
+        "potencia": 0,
+        "pp": 40
+    },
+    {
+        "nombre":"Pistola agua",
+        "tipo":"Agua",
+        "categoria":"Especial",
+        "efecto":null,
+        "precisión": 100,
+        "potencia": 40,
+        "pp": 25
+    },
+    {
+        "nombre": "Mordisco",
+        "tipo":"Siniestro",
+        "categoria":"Fisico",
+        "efecto":null,
+        "precisión": 100,
+        "potencia": 60,
+        "pp": 25
+    },
+    {
+        "nombre": "Cabezazo",
+        "tipo":"Normal",
+        "categoria":"Fisico",
+        "efecto":"esperaTurno",
+        "precisión":100,
+        "potencia":130,
+        "pp":10
+    },
+    {
+        "nombre":"Giro rápido",
+        "tipo":"Normal",
+        "categoria":"Fisico",
+        "efecto":null,
+        "precisión":100,
+        "potencia":20,
+        "pp":40
+    },
+    {
+        "nombre":"Acua cola",
+        "tipo":"Agua",
+        "categoria":"Fisico",
+        "efecto":null,
+        "precisión":90,
+        "potencia":90,
+        "pp":10
+    },
+    {
+        "nombre":"Surf",
+        "tipo":"Agua",
+        "categoria":"Especial",
+        "efecto":null,
+        "precisión":100,
+        "potencia":90,
+        "pp":15
+    },
+    {
+        "nombre":"Megapatada",
+        "tipo":"Normal",
+        "categoria":"Fisico",
+        "efecto":null,
+        "precisión":75,
+        "potencia":120,
+        "pp":5
+    },
+    {
+        "nombre":"Hidropulso",
+        "tipo":"Agua",
+        "categoria":"Especial",
+        "efecto":"puedeConfundir",
+        "precisión":100,
+        "potencia":60,
+        "pp":20
     }
 
     
