@@ -2,9 +2,9 @@
     {
         "nombre": "Bulbasaur",
         "tipo1": "Planta",
-        "tipo2":"Veneno",
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/bulbasaur.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/3/3a/Grito_de_Bulbasaur.ogg/revision/latest?cb=20140731185900",
+        "tipo2": "Veneno",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/bulbasaur.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/3/3a/Grito_de_Bulbasaur.ogg/revision/latest?cb=20140731185900",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/0/00/Bulbasaur_XY.gif/revision/latest?cb=20140505211943",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/9/98/Bulbasaur_espalda_G6.gif/revision/latest?cb=20161107174913",
         "movimientos": [
@@ -60,42 +60,110 @@
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[38,52],
-                "ataque":[19,33],
-                "defensa":[19,33],
-                "velocidad":[18,32],
-                "at.especial":[24,38],
-                "def.especial":[24,38]
+                "nivel": 15,
+                "ps": [
+                    38,
+                    52
+                ],
+                "ataque": [
+                    19,
+                    33
+                ],
+                "defensa": [
+                    19,
+                    33
+                ],
+                "velocidad": [
+                    18,
+                    32
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    24,
+                    38
+                ]
             },
             {
-                "nivel":50,
-                "ps":[105,152],
-                "ataque":[54,101],
-                "defensa":[54,101],
-                "velocidad":[50,97],
-                "at.especial":[70,117],
-                "def.especial":[70,117]
+                "nivel": 50,
+                "ps": [
+                    105,
+                    152
+                ],
+                "ataque": [
+                    54,
+                    101
+                ],
+                "defensa": [
+                    54,
+                    101
+                ],
+                "velocidad": [
+                    50,
+                    97
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    70,
+                    117
+                ]
             },
             {
-                "nivel":100,
-                "ps":[200,294],
-                "ataque":[103,197],
-                "defensa":[103,197],
-                "velocidad":[95,189],
-                "at.especial":[135,229],
-                "def.especial":[135,229]
+                "nivel": 100,
+                "ps": [
+                    200,
+                    294
+                ],
+                "ataque": [
+                    103,
+                    197
+                ],
+                "defensa": [
+                    103,
+                    197
+                ],
+                "velocidad": [
+                    95,
+                    189
+                ],
+                "at.especial": [
+                    135,
+                    229
+                ],
+                "def.especial": [
+                    135,
+                    229
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
     },
     {
         "nombre": "Ivysaur",
         "tipo1": "Planta",
-        "tipo2":"Veneno",
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/ivysaur.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/7/79/Grito_de_Ivysaur.ogg/revision/latest?cb=20140731185958",
+        "tipo2": "Veneno",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/ivysaur.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/79/Grito_de_Ivysaur.ogg/revision/latest?cb=20140731185958",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a2/Ivysaur_XY.gif/revision/latest?cb=20140807012444",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/43/Ivysaur_espalda_G6.gif/revision/latest?cb=20150321002119",
         "movimientos": [
@@ -151,42 +219,110 @@
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[43,57],
-                "ataque":[23,37],
-                "defensa":[23,38],
-                "velocidad":[23,37],
-                "at.especial":[29,43],
-                "def.especial":[29,43]
+                "nivel": 15,
+                "ps": [
+                    43,
+                    57
+                ],
+                "ataque": [
+                    23,
+                    37
+                ],
+                "defensa": [
+                    23,
+                    38
+                ],
+                "velocidad": [
+                    23,
+                    37
+                ],
+                "at.especial": [
+                    29,
+                    43
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
             },
             {
-                "nivel":50,
-                "ps":[120,167],
-                "ataque":[67,114],
-                "defensa":[68,115],
-                "velocidad":[65,112],
-                "at.especial":[85,132],
-                "def.especial":[85,132]
+                "nivel": 50,
+                "ps": [
+                    120,
+                    167
+                ],
+                "ataque": [
+                    67,
+                    114
+                ],
+                "defensa": [
+                    68,
+                    115
+                ],
+                "velocidad": [
+                    65,
+                    112
+                ],
+                "at.especial": [
+                    85,
+                    132
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
             },
             {
-                "nivel":100,
-                "ps":[230,324],
-                "ataque":[129,233],
-                "defensa":[131,225],
-                "velocidad":[125,219],
-                "at.especial":[165,259],
-                "def.especial":[165,259]
+                "nivel": 100,
+                "ps": [
+                    230,
+                    324
+                ],
+                "ataque": [
+                    129,
+                    233
+                ],
+                "defensa": [
+                    131,
+                    225
+                ],
+                "velocidad": [
+                    125,
+                    219
+                ],
+                "at.especial": [
+                    165,
+                    259
+                ],
+                "def.especial": [
+                    165,
+                    259
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
     },
     {
         "nombre": "Venusaur",
         "tipo1": "Planta",
-        "tipo2":"Veneno",
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/venusaur.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/c/cd/Grito_de_Venusaur.ogg/revision/latest?cb=20140731190112",
+        "tipo2": "Veneno",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/venusaur.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/c/cd/Grito_de_Venusaur.ogg/revision/latest?cb=20140731190112",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/46/Mega-Venusaur_XY.gif/revision/latest?cb=20140217042830",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/8/86/Mega-Venusaur_espalda_G6.gif/revision/latest?cb=20150321180200",
         "movimientos": [
@@ -242,42 +378,110 @@
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[49,63],
-                "ataque":[29,43],
-                "defensa":[29,44],
-                "velocidad":[29,43],
-                "at.especial":[35,49],
-                "def.especial":[35,49]
+                "nivel": 15,
+                "ps": [
+                    49,
+                    63
+                ],
+                "ataque": [
+                    29,
+                    43
+                ],
+                "defensa": [
+                    29,
+                    44
+                ],
+                "velocidad": [
+                    29,
+                    43
+                ],
+                "at.especial": [
+                    35,
+                    49
+                ],
+                "def.especial": [
+                    35,
+                    49
+                ]
             },
             {
-                "nivel":50,
-                "ps":[140,187],
-                "ataque":[87,134],
-                "defensa":[88,135],
-                "velocidad":[85,132],
-                "at.especial":[105,152],
-                "def.especial":[105,152]
+                "nivel": 50,
+                "ps": [
+                    140,
+                    187
+                ],
+                "ataque": [
+                    87,
+                    134
+                ],
+                "defensa": [
+                    88,
+                    135
+                ],
+                "velocidad": [
+                    85,
+                    132
+                ],
+                "at.especial": [
+                    105,
+                    152
+                ],
+                "def.especial": [
+                    105,
+                    152
+                ]
             },
             {
-                "nivel":100,
-                "ps":[270,364],
-                "ataque":[169,263],
-                "defensa":[171,265],
-                "velocidad":[165,259],
-                "at.especial":[205,299],
-                "def.especial":[205,299]
+                "nivel": 100,
+                "ps": [
+                    270,
+                    364
+                ],
+                "ataque": [
+                    169,
+                    263
+                ],
+                "defensa": [
+                    171,
+                    265
+                ],
+                "velocidad": [
+                    165,
+                    259
+                ],
+                "at.especial": [
+                    205,
+                    299
+                ],
+                "def.especial": [
+                    205,
+                    299
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
     },
     {
         "nombre": "Charmander",
         "tipo1": "Fuego",
-        "tipo2":null,
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/charmander.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/4/47/Grito_de_Charmander.ogg/revision/latest?cb=20140731190207",
+        "tipo2": null,
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/charmander.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/47/Grito_de_Charmander.ogg/revision/latest?cb=20140731190207",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/f/f5/Charmander_XY.gif/revision/latest?cb=20140807015143",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/b/b6/Charmander_espalda_G6.gif/revision/latest?cb=20150321003402",
         "movimientos": [
@@ -333,43 +537,110 @@
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[36,50],
-                "ataque":[20,34],
-                "defensa":[17,32],
-                "velocidad":[24,38],
-                "at.especial":[23,37],
-                "def.especial":[20,34]
+                "nivel": 15,
+                "ps": [
+                    36,
+                    50
+                ],
+                "ataque": [
+                    20,
+                    34
+                ],
+                "defensa": [
+                    17,
+                    32
+                ],
+                "velocidad": [
+                    24,
+                    38
+                ],
+                "at.especial": [
+                    23,
+                    37
+                ],
+                "def.especial": [
+                    20,
+                    34
+                ]
             },
             {
-                "nivel":50,
-                "ps":[99,146],
-                "ataque":[57,104],
-                "defensa":[48,95],
-                "velocidad":[70,117],
-                "at.especial":[65,112],
-                "def.especial":[55,102]
+                "nivel": 50,
+                "ps": [
+                    99,
+                    146
+                ],
+                "ataque": [
+                    57,
+                    104
+                ],
+                "defensa": [
+                    48,
+                    95
+                ],
+                "velocidad": [
+                    70,
+                    117
+                ],
+                "at.especial": [
+                    65,
+                    112
+                ],
+                "def.especial": [
+                    55,
+                    102
+                ]
             },
             {
-                "nivel":100,
-                "ps":[188,282],
-                "ataque":[109,203],
-                "defensa":[91,185],
-                "velocidad":[135,229],
-                "at.especial":[125,219],
-                "def.especial":[105,199]
+                "nivel": 100,
+                "ps": [
+                    188,
+                    282
+                ],
+                "ataque": [
+                    109,
+                    203
+                ],
+                "defensa": [
+                    91,
+                    185
+                ],
+                "velocidad": [
+                    135,
+                    229
+                ],
+                "at.especial": [
+                    125,
+                    219
+                ],
+                "def.especial": [
+                    105,
+                    199
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
     },
-
     {
         "nombre": "Charmeleon",
         "tipo1": "Fuego",
-        "tipo2":null,
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/charmeleon.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/d/d0/Grito_de_Charmeleon.ogg/revision/latest?cb=20140731190256",
+        "tipo2": null,
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/charmeleon.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/d/d0/Grito_de_Charmeleon.ogg/revision/latest?cb=20140731190256",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/9/96/Charmeleon_XY.gif/revision/latest?cb=20140807015208",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/45/Charmeleon_espalda_G6.gif/revision/latest?cb=20150321003448",
         "movimientos": [
@@ -425,42 +696,110 @@
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[42,56],
-                "ataque":[24,38],
-                "defensa":[22,36],
-                "velocidad":[29,43],
-                "at.especial":[29,43],
-                "def.especial":[24,38]
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    24,
+                    38
+                ],
+                "defensa": [
+                    22,
+                    36
+                ],
+                "velocidad": [
+                    29,
+                    43
+                ],
+                "at.especial": [
+                    29,
+                    43
+                ],
+                "def.especial": [
+                    24,
+                    38
+                ]
             },
             {
-                "nivel":50,
-                "ps":[118,165],
-                "ataque":[69,116],
-                "defensa":[63,110],
-                "velocidad":[85,132],
-                "at.especial":[85,132],
-                "def.especial":[70,117]
+                "nivel": 50,
+                "ps": [
+                    118,
+                    165
+                ],
+                "ataque": [
+                    69,
+                    116
+                ],
+                "defensa": [
+                    63,
+                    110
+                ],
+                "velocidad": [
+                    85,
+                    132
+                ],
+                "at.especial": [
+                    85,
+                    132
+                ],
+                "def.especial": [
+                    70,
+                    117
+                ]
             },
             {
-                "nivel":100,
-                "ps":[226,320],
-                "ataque":[133,227],
-                "defensa":[121,215],
-                "velocidad":[165,259],
-                "at.especial":[165,259],
-                "def.especial":[135,229]
+                "nivel": 100,
+                "ps": [
+                    226,
+                    320
+                ],
+                "ataque": [
+                    133,
+                    227
+                ],
+                "defensa": [
+                    121,
+                    215
+                ],
+                "velocidad": [
+                    165,
+                    259
+                ],
+                "at.especial": [
+                    165,
+                    259
+                ],
+                "def.especial": [
+                    135,
+                    229
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
     },
     {
         "nombre": "Charizard",
         "tipo1": "Fuego",
-        "tipo2":"Volador",
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/charizard.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/5/5e/Grito_de_Charizard.ogg/revision/latest?cb=20140731190340",
+        "tipo2": "Volador",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/charizard.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/5/5e/Grito_de_Charizard.ogg/revision/latest?cb=20140731190340",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/74/Charizard_XY.gif/revision/latest?cb=20140807015236",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/2/26/Charizard_espalda_G6.gif/revision/latest?cb=20150321003543",
         "movimientos": [
@@ -516,42 +855,110 @@
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[48,62],
-                "ataque":[30,44],
-                "defensa":[28,42],
-                "velocidad":[35,49],
-                "at.especial":[37,51],
-                "def.especial":[30,44]
+                "nivel": 15,
+                "ps": [
+                    48,
+                    62
+                ],
+                "ataque": [
+                    30,
+                    44
+                ],
+                "defensa": [
+                    28,
+                    42
+                ],
+                "velocidad": [
+                    35,
+                    49
+                ],
+                "at.especial": [
+                    37,
+                    51
+                ],
+                "def.especial": [
+                    30,
+                    44
+                ]
             },
             {
-                "nivel":50,
-                "ps":[138,185],
-                "ataque":[89,136],
-                "defensa":[83,130],
-                "velocidad":[105,152],
-                "at.especial":[114,161],
-                "def.especial":[90,137]
+                "nivel": 50,
+                "ps": [
+                    138,
+                    185
+                ],
+                "ataque": [
+                    89,
+                    136
+                ],
+                "defensa": [
+                    83,
+                    130
+                ],
+                "velocidad": [
+                    105,
+                    152
+                ],
+                "at.especial": [
+                    114,
+                    161
+                ],
+                "def.especial": [
+                    90,
+                    137
+                ]
             },
             {
-                "nivel":100,
-                "ps":[266,360],
-                "ataque":[173,267],
-                "defensa":[161,255],
-                "velocidad":[205,299],
-                "at.especial":[223,317],
-                "def.especial":[175,269]
+                "nivel": 100,
+                "ps": [
+                    266,
+                    360
+                ],
+                "ataque": [
+                    173,
+                    267
+                ],
+                "defensa": [
+                    161,
+                    255
+                ],
+                "velocidad": [
+                    205,
+                    299
+                ],
+                "at.especial": [
+                    223,
+                    317
+                ],
+                "def.especial": [
+                    175,
+                    269
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
     },
     {
         "nombre": "Squirtle",
         "tipo1": "Agua",
-        "tipo2":null,
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/squirtle.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/a/a9/Grito_de_Squirtle.ogg/revision/latest?cb=20140731190417",
+        "tipo2": null,
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/squirtle.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a9/Grito_de_Squirtle.ogg/revision/latest?cb=20140731190417",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/e/e0/Squirtle_XY.gif/revision/latest?cb=20140807020034",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/e/e9/Squirtle_espalda_G6.gif/revision/latest?cb=20150321172944",
         "movimientos": [
@@ -576,7 +983,7 @@
                 "nivel": 50,
                 "movimientos": [
                     {
-                        "nombre":"Pistola agua"
+                        "nombre": "Pistola agua"
                     },
                     {
                         "nombre": "Burbuja"
@@ -585,7 +992,7 @@
                         "nombre": "Mordisco"
                     },
                     {
-                        "nombre":"Látigo"
+                        "nombre": "Látigo"
                     }
                 ]
             },
@@ -593,13 +1000,13 @@
                 "nivel": 100,
                 "movimientos": [
                     {
-                        "nombre":"Pistola agua"
+                        "nombre": "Pistola agua"
                     },
                     {
                         "nombre": "Derribo"
                     },
                     {
-                        "nombre":"Mordisco"
+                        "nombre": "Mordisco"
                     },
                     {
                         "nombre": "Cabezazo"
@@ -607,42 +1014,110 @@
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[38,52],
-                "ataque":[19,33],
-                "defensa":[24,38],
-                "velocidad":[17,32],
-                "at.especial":[20,34],
-                "def.especial":[24,38]
+                "nivel": 15,
+                "ps": [
+                    38,
+                    52
+                ],
+                "ataque": [
+                    19,
+                    33
+                ],
+                "defensa": [
+                    24,
+                    38
+                ],
+                "velocidad": [
+                    17,
+                    32
+                ],
+                "at.especial": [
+                    20,
+                    34
+                ],
+                "def.especial": [
+                    24,
+                    38
+                ]
             },
             {
-                "nivel":50,
-                "ps":[104,151],
-                "ataque":[53,100],
-                "defensa":[70,117],
-                "velocidad":[48,95],
-                "at.especial":[55,102],
-                "def.especial":[69,116]
+                "nivel": 50,
+                "ps": [
+                    104,
+                    151
+                ],
+                "ataque": [
+                    53,
+                    100
+                ],
+                "defensa": [
+                    70,
+                    117
+                ],
+                "velocidad": [
+                    48,
+                    95
+                ],
+                "at.especial": [
+                    55,
+                    102
+                ],
+                "def.especial": [
+                    69,
+                    116
+                ]
             },
             {
-                "nivel":100,
-                "ps":[198,292],
-                "ataque":[101,195],
-                "defensa":[135,239],
-                "velocidad":[91,185],
-                "at.especial":[105,199],
-                "def.especial":[133,227]
+                "nivel": 100,
+                "ps": [
+                    198,
+                    292
+                ],
+                "ataque": [
+                    101,
+                    195
+                ],
+                "defensa": [
+                    135,
+                    239
+                ],
+                "velocidad": [
+                    91,
+                    185
+                ],
+                "at.especial": [
+                    105,
+                    199
+                ],
+                "def.especial": [
+                    133,
+                    227
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
-    } ,
+    },
     {
         "nombre": "Wartortle",
         "tipo1": "Agua",
-        "tipo2":null,
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/wartortle.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/3/33/Grito_de_Wartortle.ogg/revision/latest?cb=20140731190457",
+        "tipo2": null,
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/wartortle.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/3/33/Grito_de_Wartortle.ogg/revision/latest?cb=20140731190457",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a0/Wartortle_XY.gif/revision/latest?cb=20140807020154",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/76/Wartortle_espalda_G6.gif/revision/latest?cb=20150321173056",
         "movimientos": [
@@ -667,16 +1142,16 @@
                 "nivel": 50,
                 "movimientos": [
                     {
-                        "nombre":"Pistola agua"
+                        "nombre": "Pistola agua"
                     },
                     {
-                        "nombre":"Cabezazo"
+                        "nombre": "Cabezazo"
                     },
                     {
                         "nombre": "Mordisco"
                     },
                     {
-                        "nombre":"Giro rápido"
+                        "nombre": "Giro rápido"
                     }
                 ]
             },
@@ -684,56 +1159,124 @@
                 "nivel": 100,
                 "movimientos": [
                     {
-                        "nombre":"Pistola agua"
+                        "nombre": "Pistola agua"
                     },
                     {
                         "nombre": "Hidropulso"
                     },
                     {
-                        "nombre":"Acua cola"
+                        "nombre": "Acua cola"
                     },
                     {
-                        "nombre":"Doble filo"
+                        "nombre": "Doble filo"
                     }
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[42,56],
-                "ataque":[23,38],
-                "defensa":[29,43],
-                "velocidad":[22,36],
-                "at.especial":[24,38],
-                "def.especial":[29,43]
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
             },
             {
-                "nivel":50,
-                "ps":[119,166],
-                "ataque":[68,115],
-                "defensa":[85,132],
-                "velocidad":[63,110],
-                "at.especial":[70,117],
-                "def.especial":[85,132]
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
             },
             {
-                "nivel":100,
-                "ps":[228,322],
-                "ataque":[131,225],
-                "defensa":[165,259],
-                "velocidad":[121,215],
-                "at.especial":[135,229],
-                "def.especial":[165,259]
+                "nivel": 100,
+                "ps": [
+                    228,
+                    322
+                ],
+                "ataque": [
+                    131,
+                    225
+                ],
+                "defensa": [
+                    165,
+                    259
+                ],
+                "velocidad": [
+                    121,
+                    215
+                ],
+                "at.especial": [
+                    135,
+                    229
+                ],
+                "def.especial": [
+                    165,
+                    259
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
-    } ,
+    },
     {
         "nombre": "Blastoise",
         "tipo1": "Agua",
-        "tipo2":null,
-        "sprite":"https://img.pokemondb.net/sprites/sun-moon/icon/blastoise.png",
-        "sonido":"https://vignette.wikia.nocookie.net/es.pokemon/images/6/67/Grito_de_Blastoise.ogg/revision/latest?cb=20140731190546",
+        "tipo2": null,
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/blastoise.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/6/67/Grito_de_Blastoise.ogg/revision/latest?cb=20140731190546",
         "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/71/Blastoise_XY.gif/revision/latest?cb=20140807020232",
         "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/d/d8/Blastoise_espalda_G6.gif/revision/latest?cb=20140111220000",
         "movimientos": [
@@ -744,7 +1287,7 @@
                         "nombre": "Placaje"
                     },
                     {
-                        "nombre":"Mordisco"
+                        "nombre": "Mordisco"
                     },
                     {
                         "nombre": "Pistola agua"
@@ -758,16 +1301,16 @@
                 "nivel": 50,
                 "movimientos": [
                     {
-                        "nombre":"Pistola agua"
+                        "nombre": "Pistola agua"
                     },
                     {
-                        "nombre":"Cabezazo"
+                        "nombre": "Cabezazo"
                     },
                     {
                         "nombre": "Mordisco"
                     },
                     {
-                        "nombre":"Surf"
+                        "nombre": "Surf"
                     }
                 ]
             },
@@ -775,48 +1318,917 @@
                 "nivel": 100,
                 "movimientos": [
                     {
-                        "nombre":"Surf"
+                        "nombre": "Surf"
                     },
                     {
                         "nombre": "Derribo"
                     },
                     {
-                        "nombre":"Megapatada"
+                        "nombre": "Megapatada"
                     },
                     {
-                        "nombre":"Hidropulso"
+                        "nombre": "Hidropulso"
                     }
                 ]
             }
         ],
-        "stats":[
+        "stats": [
             {
-                "nivel":15,
-                "ps":[42,56],
-                "ataque":[23,38],
-                "defensa":[29,43],
-                "velocidad":[22,36],
-                "at.especial":[24,38],
-                "def.especial":[29,43]
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
             },
             {
-                "nivel":50,
-                "ps":[119,166],
-                "ataque":[68,115],
-                "defensa":[85,132],
-                "velocidad":[63,110],
-                "at.especial":[70,117],
-                "def.especial":[85,132]
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
             },
             {
-                "nivel":100,
-                "ps":[268,362],
-                "ataque":[171,265],
-                "defensa":[205,299],
-                "velocidad":[161,255],
-                "at.especial":[175,269],
-                "def.especial":[215,309]
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
             }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
         ]
-    } 
+    },
+    {
+        "nombre": "Caterpie",
+        "tipo1": "Bicho",
+        "tipo2": null,
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/caterpie.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/8/82/Grito_de_Caterpie.ogg/revision/latest?cb=20140801131141",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/d/df/Caterpie_XY.gif/revision/latest?cb=20140807020401",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/b/b2/Caterpie_espalda_G6.gif/revision/latest?cb=20140112100921",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Disparo demora"
+                    },
+                    {
+                        "nombre": "Picadura"
+                    },
+                    {
+                        "nombre": "Electrotela"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Disparo demora"
+                    },
+                    {
+                        "nombre": "Picadura"
+                    },
+                    {
+                        "nombre": "Electrotela"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Disparo demora"
+                    },
+                    {
+                        "nombre": "Picadura"
+                    },
+                    {
+                        "nombre": "Electrotela"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    }
+    ,
+
+    {
+        "nombre": "Metapod",
+        "tipo1": "Bicho",
+        "tipo2": null,
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/metapod.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/0/08/Grito_de_Metapod.ogg/revision/latest?cb=20140806152944",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/5/55/Metapod_XY.gif/revision/latest?cb=20140111173347",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/71/Metapod_espalda_G6.gif/revision/latest?cb=20150321165656",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Fortaleza"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Fortaleza"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Fortaleza"
+                    },
+                    {
+                        "nombre":"Placaje"
+                    },
+                    {
+                        "nombre":"Electrotela"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    },
+
+    {
+        "nombre": "Butterfree",
+        "tipo1": "Bicho",
+        "tipo2":"Volador",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/butterfree.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/4/43/Grito_de_Butterfree.ogg/revision/latest?cb=20140801131102",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/6/6e/Butterfree_XY_hembra.gif/revision/latest?cb=20140803160150",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a4/Butterfree_espalda_G6_hembra.gif/revision/latest?cb=20140111221903",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre": "Placaje"
+                    },
+                    {
+                        "nombre": "Tornado"
+                    },
+                    {
+                        "nombre":"Confusión"
+                    },
+                    {
+                        "nombre":"Polvo veneno"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Tornado"
+                    },
+                    {
+                        "nombre": "Paralizador"
+                    },
+                    {
+                        "nombre":"Polvo veneno"
+                    },
+                    {
+                        "nombre": "Psicorrayo"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Psicorrayo"
+                    },
+                    {
+                        "nombre":"Tóxico"
+                    },
+                    {
+                        "nombre": "Tajo aéreo"
+                    },
+                    {
+                        "nombre":"Derribo"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    },
+
+    {
+        "nombre": "Weedle",
+        "tipo1": "Bicho",
+        "tipo2":"Veneno",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/weedle.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/b/b3/Grito_de_Weedle.ogg/revision/latest?cb=20141026170048",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/3/32/Weedle_XY.gif/revision/latest?cb=20140807020957",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/d/d8/Weedle_espalda_G6.gif/revision/latest?cb=20150321003919",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    },
+                    {
+                        "nombre":"Electrotela"
+                    },
+                    {
+                        "nombre":"Picotazo venenoso"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    },
+                    {
+                        "nombre":"Electrotela"
+                    },
+                    {
+                        "nombre":"Picotazo venenoso"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    },
+                    {
+                        "nombre":"Electrotela"
+                    },
+                    {
+                        "nombre":"Picotazo venenoso"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    },
+
+
+    {
+        "nombre": "Kakuna",
+        "tipo1": "Bicho",
+        "tipo2": "Veneno",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/kakuna.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/2/25/Grito_de_Kakuna.ogg/revision/latest?cb=20140806050725",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/5/55/Kakuna_XY.gif/revision/latest?cb=20140807021017",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/0/01/Kakuna_espalda_G6.gif/revision/latest?cb=20150321004056",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre":"Fortaleza"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Electrotela"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Fortaleza"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Electrotela"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Fortaleza"
+                    },
+                    {
+                        "nombre":"Disparo demora"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Electrotela"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    }
 ]

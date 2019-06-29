@@ -23,4 +23,8 @@ export class ObtieneDatosService {
   public getMovimientos(): Observable<any> {
     return this.http.get("./assets/Datos/movimientos.json");
   }
+
+  public getEfectividades(): Observable<any> {
+    return this.http.get("./assets/Datos/efectividades.json");
+  }
 }

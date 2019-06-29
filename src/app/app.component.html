@@ -64,19 +64,19 @@
 
   <!-- Inicio Div para la batalla pokemon -->
   <div>
-    <div class="fondoBatalla" *ngIf="jugar1Player">
-      <div>
+    <div class="fondoBatalla " *ngIf="jugar1Player">
+      <div  >
         <div style="text-align: right; margin-bottom: 0.5%; width: 880px;
-          height: 290px;">
-          <img class="pokemonRival"
-            (click)="suenaPokemon(batalla.equipoRivalPokemon[0].sonido)"
+          height: 290px;  ">
+          <img class="pokemonRival animated fadeIn"
+            (click)="suenaPokemon(batalla.actualPokemonRival.sonido)"
             style="padding-top: 21%; padding-right: 15%"
-            src="{{batalla.equipoRivalPokemon[0].imgFrente}}"
+            src="{{batalla.actualPokemonRival.imgFrente}}"
             alt="">
         </div>
 
-        <div style="text-align: left;width: 880px; height: 190px;">
-          <img class="pokemonJugador"
+        <div  style="text-align: left;width: 880px; height: 190px;">
+          <img class="pokemonJugador animated fadeIn "
             (click)="suenaPokemon(batalla.actualPokemon.sonido)"
             style="padding-top: 4%;padding-left:23%;"
             src="{{batalla.actualPokemon.imgDetras}}" alt="">
@@ -90,17 +90,24 @@
 </div>
 
 <div class="sidenav" id="sideMenu" *ngIf="jugar1Player">
-  <div *ngIf="menuBatalla">
+  <div class="animated fadeIn" *ngIf="menuBatalla">
 
-    <button (click)="lucharPokemon();suenaClick()" style="margin-bottom: 10%"
+    <button (click)="lucharPokemon();suenaClick()" style="margin-bottom: 7%"
       class="btn
       btn-success menuBtnBatalla">Luchar</button>
 
-    <button style="margin-bottom: 10%" (click)="cambiarPokemon();suenaClick()"
+    <button (click)="verDatoModal()" style="margin-bottom: 7%;background-color:
+      rgb(192, 191, 187)"
+      data-toggle="modal"
+      data-target="#datoEquipo" (click)="suenaClick()"
+      class="btn
+      btn-warning menuBtnBatalla">Datos</button>
+
+    <button style="margin-bottom: 7%" (click)="cambiarPokemon();suenaClick()"
       class="btn
       btn-warning menuBtnBatalla">Cambiar Pokemón</button>
 
-    <button style="margin-bottom:10%" data-toggle="modal"
+    <button style="margin-bottom:7%" data-toggle="modal"
       data-target="#rendirse" class="btn btn-danger menuBtnBatalla">Rendirse</button>
     <hr style="border: 2px solid green">
   </div>
@@ -109,7 +116,7 @@
   <!-- Inicio contenido de menu batalla -->
   <div id="contenidoMenuBatalla">
     <!-- Logo pokebola -->
-    <img *ngIf="inicioPartida" style="margin-left:13%;margin-top:10%"
+    <img *ngIf="inicioPartida" style="margin-left:13%;margin-top:5%"
       id="logoPoke"
       src="https://thumbs.dreamstime.com/t/logotipo-de-pokeball-aislado-en-el-fondo-blanco-88534439.jpg"
       alt="">
@@ -125,7 +132,7 @@
         id="btnEfectoGrande"
         *ngFor="let pokemon of batalla.equipoPokemon"
         class="btn btn-light
-        btnCambiaPokemon" [ngClass]="{
+        btnCambiaPokemon animated fadeIn " [ngClass]="{
         'btnFuego':pokemon.tipo1 == 'Fuego',
         'btnAgua': pokemon.tipo1 == 'Agua',
         'btnPlanta': pokemon.tipo1 == 'Planta',
@@ -142,16 +149,17 @@
 
     <!-- Inicio menu ataques pokemon -->
     <div style="margin-top:10%" *ngIf="muestraAtaquesPokemon">
-      <button class="btn btn-light btnLuchaPokemon" *ngFor="let move of
-        listaMovimientosActuales;"
+      <button class="btn btn-light btnLuchaPokemon animated fadeIn" id="{{move.nombre}}" *ngFor="let move of
+        batalla.actualPokemon.movimientosBatalla;"
         [ngClass]="{
         'btnFuego':move.tipo == 'Fuego',
         'btnAgua': move.tipo == 'Agua',
         'btnPlanta': move.tipo == 'Planta',
         'btnNormal': move.tipo == 'Normal',
         'btnSiniestro': move.tipo == 'Siniestro'
-        }">
-        {{move.nombre}}
+        }"  (click)="luchaMovimiento(move.nombre)" >
+        {{move.nombre}} <br>
+         <i>PP {{move.pp}}</i> 
       </button>
       <hr style="border:1px solid black">
       <button class="btn btn-danger" style="display: block;
@@ -258,13 +266,87 @@
 <!-- Fin Modal Pokemones-->
 
 
-<div *ngIf="pokedex && !infoPokemon" style="margin-left:5%">
-  <button (click)="volverMenuPrincipal();suenaClick()" style="display: block;
-    width:30%;float:left;margin-left: 2%" class="btn btn-danger">
-    Volver al menú principal
-  </button><br><br><br>
+<!-- Incio Modal Datos Pokemones-->
+<div class="modal fade" id="datoEquipo" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="background-color: rgb(238, 238,
+        238);width:110%">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div *ngIf="!datosMostrar">
+          <h6> Equipo Pokemon </h6>
+          <span>A continuación selecciona el pokemon al que deseas visualizar
+            sus datos</span><br>
+
+          <button class="btn btn-light"
+            (click)="verDatos(pokemon);suenaClick()" style="border: 1px solid
+            black;
+            margin-right:2%;margin-top:2%" *ngFor="let pokemon of
+            batalla.equipoPokemon">
+            <img src="{{pokemon.sprite}}" alt="" srcset=""> {{pokemon.nombre}}
+          </button>
+        </div>
+
+        <div *ngIf="datosMostrar">
+          <div>
+            <h5 style="margin-bottom: 3%;color:blueviolet">Movimientos</h5>
+            <div *ngFor="let move of pokemonDatos.movimientosBatalla"
+              class="datosPokemons">
+              <span style="color:red">{{move.nombre}}</span>
+              <br> <span style="color:blue"> Tipo: </span> <span>{{move.tipo}}
+              </span>
+              <br> <span style="color:blue"> PP: </span> <span>{{move.pp}}
+              </span>
+            </div>
+            <h5 style="margin-top: 25%;color:blueviolet">Stats</h5>
+            <div style="margin-left: 5%">
+                <div class="statsDatos">
+                    <span style="color:rgb(253, 54, 5)">Ataque:</span> <span>
+                      {{pokemonDatos.batalla.ataque}} </span>
+                  </div>
+                  <div class="statsDatos">
+                    <span style="color:rgb(253, 54, 5)">Defensa:</span> <span>
+                      {{pokemonDatos.batalla.defensa}} </span>
+                  </div>
+                  <div class="statsDatos">
+                    <span style="color:rgb(253, 54, 5)">Velocidad:</span> <span>
+                      {{pokemonDatos.batalla.velocidad}} </span>
+                  </div><br>
+                  <div class="statsDatos">
+                    <span style="color:rgb(253, 54, 5)">Ataque Especial:</span> <span>
+                      {{pokemonDatos.batalla['at.especial']}} </span>
+                  </div>
+                  <div class="statsDatos">
+                    <span style="color:rgb(253, 54, 5)">Defensa Especial:</span> <span>
+                      {{pokemonDatos.batalla['def.especial']}} </span>
+                  </div>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin Modal Datos Pokemones-->
+
+
+
+
+<div *ngIf="pokedex && !infoPokemon">
+  <button (click)="volverMenuPrincipal();suenaClick()" class="btn btn-danger
+    btnVolverAtras">
+    <img
+      src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUxMS42MyA1MTEuNjMxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTEuNjMgNTExLjYzMTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxwYXRoIGQ9Ik00OTYuNSwyMzMuODQyYy0zMC44NDEtNzYuNzA2LTExNC4xMTItMTE1LjA2LTI0OS44MjMtMTE1LjA2aC02My45NTNWNDUuNjkzYzAtNC45NTItMS44MDktOS4yMzUtNS40MjQtMTIuODUgICBjLTMuNjE3LTMuNjE3LTcuODk2LTUuNDI2LTEyLjg0Ny01LjQyNmMtNC45NTIsMC05LjIzNSwxLjgwOS0xMi44NSw1LjQyNkw1LjQyNCwxNzkuMDIxQzEuODA5LDE4Mi42NDEsMCwxODYuOTIyLDAsMTkxLjg3MSAgIGMwLDQuOTQ4LDEuODA5LDkuMjI5LDUuNDI0LDEyLjg0N0wxNTEuNjA0LDM1MC45YzMuNjE5LDMuNjEzLDcuOTAyLDUuNDI4LDEyLjg1LDUuNDI4YzQuOTQ3LDAsOS4yMjktMS44MTQsMTIuODQ3LTUuNDI4ICAgYzMuNjE2LTMuNjE0LDUuNDI0LTcuODk4LDUuNDI0LTEyLjg0OHYtNzMuMDk0aDYzLjk1M2MxOC42NDksMCwzNS4zNDksMC41NjgsNTAuMDk5LDEuNzA4YzE0Ljc0OSwxLjE0MywyOS40MTMsMy4xODksNDMuOTY4LDYuMTQzICAgYzE0LjU2NCwyLjk1LDI3LjIyNCw2Ljk5MSwzNy45NzksMTIuMTM1YzEwLjc1Myw1LjE0NCwyMC43OTQsMTEuNzU2LDMwLjEyMiwxOS44NDJjOS4zMjksOC4wOTQsMTYuOTQzLDE3LjcsMjIuODQ3LDI4LjgzOSAgIGM1Ljg5NiwxMS4xMzYsMTAuNTEzLDI0LjMxMSwxMy44NDYsMzkuNTM5YzMuMzI2LDE1LjIyOSw0Ljk5NywzMi40NTYsNC45OTcsNTEuNjc1YzAsMTAuNDY2LTAuNDc5LDIyLjE3Ni0xLjQyOCwzNS4xMTggICBjMCwxLjEzNy0wLjIzNiwzLjM3NS0wLjcxNSw2LjcwOGMtMC40NzMsMy4zMzMtMC43MTIsNS44NTItMC43MTIsNy41NjJjMCwyLjg1MSwwLjgwOCw1LjIzMiwyLjQyMyw3LjEzNiAgIGMxLjYyMiwxLjkwMiwzLjg2LDIuODUxLDYuNzE0LDIuODUxYzMuMDQ2LDAsNS43MDgtMS42MTUsNy45OTQtNC44NTNjMS4zMjgtMS43MTEsMi41NjEtMy44MDYsMy43MS02LjI4MyAgIGMxLjE0My0yLjQ3MSwyLjQzLTUuMzI1LDMuODU0LTguNTYyYzEuNDMxLTMuMjM3LDIuNDMtNS41MTMsMi45OTgtNi44NDhjMjQuMTctNTQuMjM4LDM2LjI1OC05Ny4xNTgsMzYuMjU4LTEyOC43NTYgICBDNTExLjYzLDI5MS4wMzksNTA2LjU4OSwyNTkuMzQ0LDQ5Ni41LDIzMy44NDJ6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
+  </button><br><br>
   <div *ngFor="let poke of pokemons">
-    <div class="card" (click)="verPokemon(poke)" style="margin-left:2%;width:
+    <div class="card" (click)="verPokemon(poke)" style="margin-left:8%;width:
       15%;float:left;margin-bottom: 2%;padding: 1%;cursor:
       pointer;border-radius: 10%;border:2px solid yellow">
       <h5 style="text-align: center;color:blueviolet;">{{poke.nombre}}</h5>
@@ -278,22 +360,33 @@
 </div>
 
 <div *ngIf="infoPokemon">
-  <button (click)="verPokedex();suenaClick()" style="display: block;
-    width:30%;float:left;margin-left: 7%;" class="btn btn-danger">
-    Volver a la Pokedex
-  </button><br><br><br>
-  <div style="margin:auto; width:60%; height:900px; background-color: white;
-    padding:2%">
-    <h3 style="color:brown">{{pokemonActualInfo.nombre}}</h3><br>
-    <div style="border: 1px solid black; border-radius:5%; padding:1%; text-align:center">
-      <h6 style="float: left;margin-left:10%">Sprite</h6> <br>
-      <img  src="{{pokemonActualInfo.sprite}}" alt="">
-      <hr>
-      <h6 style="float: left;margin-left:10%">Imagen de frente</h6><br>
+  <button (click)="verPokedex();suenaClick()"
+    class="btn
+    btn-danger btnVolverAtras">
+    <img
+      src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUxMS42MyA1MTEuNjMxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTEuNjMgNTExLjYzMTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxwYXRoIGQ9Ik00OTYuNSwyMzMuODQyYy0zMC44NDEtNzYuNzA2LTExNC4xMTItMTE1LjA2LTI0OS44MjMtMTE1LjA2aC02My45NTNWNDUuNjkzYzAtNC45NTItMS44MDktOS4yMzUtNS40MjQtMTIuODUgICBjLTMuNjE3LTMuNjE3LTcuODk2LTUuNDI2LTEyLjg0Ny01LjQyNmMtNC45NTIsMC05LjIzNSwxLjgwOS0xMi44NSw1LjQyNkw1LjQyNCwxNzkuMDIxQzEuODA5LDE4Mi42NDEsMCwxODYuOTIyLDAsMTkxLjg3MSAgIGMwLDQuOTQ4LDEuODA5LDkuMjI5LDUuNDI0LDEyLjg0N0wxNTEuNjA0LDM1MC45YzMuNjE5LDMuNjEzLDcuOTAyLDUuNDI4LDEyLjg1LDUuNDI4YzQuOTQ3LDAsOS4yMjktMS44MTQsMTIuODQ3LTUuNDI4ICAgYzMuNjE2LTMuNjE0LDUuNDI0LTcuODk4LDUuNDI0LTEyLjg0OHYtNzMuMDk0aDYzLjk1M2MxOC42NDksMCwzNS4zNDksMC41NjgsNTAuMDk5LDEuNzA4YzE0Ljc0OSwxLjE0MywyOS40MTMsMy4xODksNDMuOTY4LDYuMTQzICAgYzE0LjU2NCwyLjk1LDI3LjIyNCw2Ljk5MSwzNy45NzksMTIuMTM1YzEwLjc1Myw1LjE0NCwyMC43OTQsMTEuNzU2LDMwLjEyMiwxOS44NDJjOS4zMjksOC4wOTQsMTYuOTQzLDE3LjcsMjIuODQ3LDI4LjgzOSAgIGM1Ljg5NiwxMS4xMzYsMTAuNTEzLDI0LjMxMSwxMy44NDYsMzkuNTM5YzMuMzI2LDE1LjIyOSw0Ljk5NywzMi40NTYsNC45OTcsNTEuNjc1YzAsMTAuNDY2LTAuNDc5LDIyLjE3Ni0xLjQyOCwzNS4xMTggICBjMCwxLjEzNy0wLjIzNiwzLjM3NS0wLjcxNSw2LjcwOGMtMC40NzMsMy4zMzMtMC43MTIsNS44NTItMC43MTIsNy41NjJjMCwyLjg1MSwwLjgwOCw1LjIzMiwyLjQyMyw3LjEzNiAgIGMxLjYyMiwxLjkwMiwzLjg2LDIuODUxLDYuNzE0LDIuODUxYzMuMDQ2LDAsNS43MDgtMS42MTUsNy45OTQtNC44NTNjMS4zMjgtMS43MTEsMi41NjEtMy44MDYsMy43MS02LjI4MyAgIGMxLjE0My0yLjQ3MSwyLjQzLTUuMzI1LDMuODU0LTguNTYyYzEuNDMxLTMuMjM3LDIuNDMtNS41MTMsMi45OTgtNi44NDhjMjQuMTctNTQuMjM4LDM2LjI1OC05Ny4xNTgsMzYuMjU4LTEyOC43NTYgICBDNTExLjYzLDI5MS4wMzksNTA2LjU4OSwyNTkuMzQ0LDQ5Ni41LDIzMy44NDJ6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
+  </button><br><br>
+
+  <div class="infoPokedex">
+
+    <h2 style="color:chartreuse">{{pokemonActualInfo.nombre}}</h2><br>
+    <div class="imgsPokedexInfo">
+      <p class="subTitulosInfoPokedex">Sprite</p> <br>
+      <img src="{{pokemonActualInfo.sprite}}" alt="">
+      <hr class="hrPokedex">
+      <p class="subTitulosInfoPokedex">Imagen de frente</p><br>
       <img src="{{pokemonActualInfo.imgFrente}}" alt="">
-      <hr>
-      <h6 style="float: left;margin-left:10%">Imagen de espalda</h6><br>
+      <hr class="hrPokedex">
+      <p class="subTitulosInfoPokedex">Imagen de espalda</p><br>
       <img src="{{pokemonActualInfo.imgDetras}}" alt="">
+      <hr class="hrPokedex">
+      <p class="subTitulosInfoPokedex">Sonido</p><br>
+      <button (click)="suenaPokemon(pokemonActualInfo.sonido)" class="btn
+        btn-light" style="width: 10%;background-color: rgba(210, 211, 214,
+        0.7)">
+        <img
+          src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE2IDE2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiPgo8Zz4KCTxwYXRoIGQ9Ik04LDBDMy41ODIsMCwwLDMuNTgyLDAsOHMzLjU4Miw4LDgsOHM4LTMuNTgyLDgtOFMxMi40MTgsMCw4LDB6IE01LDEyVjRsNyw0TDUsMTJ6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
+      </button>
     </div>
 
   </div>

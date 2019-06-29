@@ -304,7 +304,107 @@
         "precisión":100,
         "potencia":60,
         "pp":20
+    },
+    {
+        "nombre": "Disparo demora",
+        "tipo":"Bicho",
+        "categoria":"Estado",
+        "efecto":"bajaVelocidad",
+        "precisión":95,
+        "potencia":0,
+        "pp":40
+    },
+    {
+        "nombre": "Picadura",
+        "tipo":"Bicho",
+        "categoria":"Fisico",
+        "efecto":null,
+        "precisión":100,
+        "potencia":60,
+        "pp":20
+    },
+    {
+        "nombre": "Electrotela",
+        "tipo":"Electrico",
+        "categoria":"Especial",
+        "efecto":"bajaVelocidad",
+        "precisión":95,
+        "potencia":55,
+        "pp":15
+    },
+    {
+        "nombre": "Fortaleza",
+        "tipo":"Normal",
+        "categoria":"Estado",
+        "efecto":"subeDefensa",
+        "precisión":100,
+        "potencia":0,
+        "pp":30
+    },
+    {
+        "nombre": "Tornado",
+        "tipo":"Volador",
+        "categoria":"Especial",
+        "efecto":null,
+        "precisión":100,
+        "potencia":40,
+        "pp":35
+    },
+    {
+        "nombre":"Confusión",
+        "tipo":"Psiquico",
+        "categoria":"Especial",
+        "efecto":"puedeConfundir",
+        "precisión":100,
+        "potencia":50,
+        "pp":25
+    },
+    {
+        "nombre":"Paralizador",
+        "tipo":"Planta",
+        "categoria":"Estado",
+        "efecto":"paraliza",
+        "precisión":75,
+        "potencia":0,
+        "pp":30
+    },
+    {
+        "nombre": "Psicorrayo",
+        "tipo":"Psiquico",
+        "categoria":"Especial",
+        "efecto":"puedeConfundir",
+        "precisión":100,
+        "potencia":65,
+        "pp":20
+    },
+    {
+        "nombre":"Tóxico",
+        "tipo":"Veneno",
+        "categoria":"Estado",
+        "efecto":"envenenaPorTurno",
+        "precisión":90,
+        "potencia":0,
+        "pp":10
+    },
+    {
+        "nombre": "Tajo aéreo",
+        "tipo":"Volador",
+        "categoria":"Especial",
+        "efecto":"puedeRetroceder",
+        "precisión":95,
+        "potencia":75,
+        "pp":15
+    },
+    {
+        "nombre":"Picotazo venenoso",
+        "tipo":"Veneno",
+        "categoria":"Fisico",
+        "efecto":"puedeEnvenenar",
+        "precisión":100,
+        "potencia":15,
+        "pp":35
     }
+    
 
     
 ]
