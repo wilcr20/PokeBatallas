@@ -25,6 +25,8 @@ export class AppComponent {
   datosMostrar = false;
   pokemonActualInfo: any;
   pokemonDatos = null;
+  psPokemonRival = 100;
+  psPokemon = 100;
 
 
   audioOpening = "http://23.237.126.42/ost/pokemon-gameboy-sound-collection/vvdpydwp/101-opening.mp3";
@@ -60,6 +62,8 @@ export class AppComponent {
     this.muestraPokemonCambio = false;
     this.menuBatalla = true;
     (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenav";
+
+    
   }
 
   verDatoModal() {
@@ -83,12 +87,11 @@ export class AppComponent {
     } else {
       (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenavcambiaPokemon2";
     }
-
-
   }
 
   cambiaPokemonActual(pokemon) {  // Cambia el pokemon actual por otro elegido desde la vista
     this.batalla.actualPokemon = pokemon;
+
     this.suenaPokemon(pokemon.sonido)
     this.volverMenuBatalla();
 
@@ -108,18 +111,50 @@ export class AppComponent {
   luchaMovimiento(pokemonMov) {
     for (let index = 0; index < this.batalla.actualPokemon.movimientosBatalla.length; index++) {
       let mov = this.batalla.actualPokemon.movimientosBatalla[index];
-      if(mov.nombre== pokemonMov){
-        if (mov.pp ==0){
+      if (mov.nombre == pokemonMov) {
+        if (mov.pp == 0) {
           (<HTMLInputElement>document.getElementById(mov.nombre)).disabled = true;
           (<HTMLInputElement>document.getElementById(mov.nombre)).classList.add('disabled');
-           return;
+          return;
         }
-        mov.pp = mov.pp-1;
-        this.batalla.atacaPokemon(mov);
+        mov.pp = mov.pp - 1;
+
+
+        let barraVida = (<HTMLInputElement>document.getElementById("psPokemonRival"));
+        let daño = this.batalla.atacaPokemon(mov);
+        let vidaActualRival = this.batalla.actualPokemonRival.batalla.ps;
+        let newVida = vidaActualRival - daño;
+        
+
+        if (newVida <= 0) {
+          alert("Pokemon Debilitado XD");
+          barraVida.value = "0";
+        } else {
+
+          while (vidaActualRival > newVida) {
+            (function (vidaActualRival) {
+              setTimeout(function () {
+                barraVida.setAttribute("value", vidaActualRival.toString());
+              }, 600)
+              
+            })
+            (vidaActualRival = vidaActualRival - 1)
+          }
+
+        }
+        console.log(barraVida)
+        this.setVida(newVida)
         this.volverMenuBatalla(); //Termina ataque
         return;
       }
     }
+  }
+
+  setVida(vida){
+    setTimeout(() => {
+      this.batalla.actualPokemonRival.batalla.ps = vida;
+    }, 1000);
+    
   }
 
   //Metodo retorna lista con los tipos de los movimeintos del pokemon actual : ["agua", "fuego",...]
@@ -133,8 +168,8 @@ export class AppComponent {
   }
 
   //Metodo verifica que el pokemon aun tiene PP para batallar en todos sus movimientos!!!
-  verificaAtaquesPP(){
-     //Por terminar, muy poco probable que el pokemon quede sin PP´s en batalla
+  verificaAtaquesPP() {
+    //Por terminar, muy poco probable que el pokemon quede sin PP´s en batalla
   }
 
 
@@ -183,11 +218,15 @@ export class AppComponent {
   setInicial(pokemon) {
     //this.audio.pause();
     this.batalla.actualPokemon = pokemon;
-    this.batalla.actualPokemonRival= this.batalla.equipoRivalPokemon[0];
+    this.batalla.actualPokemonRival = this.batalla.equipoRivalPokemon[0];
     this.jugar1Player = true;
     this.inicioPartida = true;
     this.batalla.setearStatsPokemons();
     this.batalla.setearStatsPokemonsRival();
+
+    this.psPokemon = this.batalla.actualPokemon.batalla.psInicial;
+    this.psPokemonRival = this.batalla.actualPokemonRival.batalla.psInicial;
+
     this.obtieneTiposMovimientos();
     this.setearMovimientosPokemons()
     this.setearMovimientosPokemonsRival()

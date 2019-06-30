@@ -64,19 +64,24 @@
 
   <!-- Inicio Div para la batalla pokemon -->
   <div>
-    <div class="fondoBatalla " *ngIf="jugar1Player">
-      <div  >
-        <div style="text-align: right; margin-bottom: 0.5%; width: 880px;
-          height: 290px;  ">
+    <div class="fondoBatalla" *ngIf="jugar1Player">
+      <div>
+        <div style="text-align: right; margin-bottom: 0.2%; width: 880px;
+          height: 290px;">
+          <div style="padding-top: 5%">
+              <progress style="width: 30%;margin-left: 72%;" min="0" id="psPokemonRival" value="{{batalla.actualPokemonRival.batalla.ps}}" max="{{batalla.actualPokemonRival.batalla.psInicial}}"> </progress>
+          </div>
+          
           <img class="pokemonRival animated fadeIn"
             (click)="suenaPokemon(batalla.actualPokemonRival.sonido)"
-            style="padding-top: 21%; padding-right: 15%"
+            style="padding-top: 11%; padding-right: 15%"
             src="{{batalla.actualPokemonRival.imgFrente}}"
             alt="">
         </div>
 
-        <div  style="text-align: left;width: 880px; height: 190px;">
-          <img class="pokemonJugador animated fadeIn "
+        <div style="text-align: left;width: 880px; height: 190px;">
+          <progress style="width: 30%" min="0" value="{{batalla.actualPokemon.batalla.ps}}" max="{{batalla.actualPokemon.batalla.psInicial}}" id="psPokemon" > </progress>
+          <img class="pokemonJugador animated fadeIn"
             (click)="suenaPokemon(batalla.actualPokemon.sonido)"
             style="padding-top: 4%;padding-left:23%;"
             src="{{batalla.actualPokemon.imgDetras}}" alt="">
@@ -132,7 +137,7 @@
         id="btnEfectoGrande"
         *ngFor="let pokemon of batalla.equipoPokemon"
         class="btn btn-light
-        btnCambiaPokemon animated fadeIn " [ngClass]="{
+        btnCambiaPokemon animated fadeIn" [ngClass]="{
         'btnFuego':pokemon.tipo1 == 'Fuego',
         'btnAgua': pokemon.tipo1 == 'Agua',
         'btnPlanta': pokemon.tipo1 == 'Planta',
@@ -149,7 +154,8 @@
 
     <!-- Inicio menu ataques pokemon -->
     <div style="margin-top:10%" *ngIf="muestraAtaquesPokemon">
-      <button class="btn btn-light btnLuchaPokemon animated fadeIn" id="{{move.nombre}}" *ngFor="let move of
+      <button class="btn btn-light btnLuchaPokemon animated fadeIn"
+        id="{{move.nombre}}" *ngFor="let move of
         batalla.actualPokemon.movimientosBatalla;"
         [ngClass]="{
         'btnFuego':move.tipo == 'Fuego',
@@ -157,9 +163,9 @@
         'btnPlanta': move.tipo == 'Planta',
         'btnNormal': move.tipo == 'Normal',
         'btnSiniestro': move.tipo == 'Siniestro'
-        }"  (click)="luchaMovimiento(move.nombre)" >
+        }" (click)="luchaMovimiento(move.nombre)">
         {{move.nombre}} <br>
-         <i>PP {{move.pp}}</i> 
+        <i>PP {{move.pp}}</i>
       </button>
       <hr style="border:1px solid black">
       <button class="btn btn-danger" style="display: block;
@@ -293,19 +299,29 @@
         </div>
 
         <div *ngIf="datosMostrar">
-          <div>
-            <h5 style="margin-bottom: 3%;color:blueviolet">Movimientos</h5>
-            <div *ngFor="let move of pokemonDatos.movimientosBatalla"
-              class="datosPokemons">
-              <span style="color:red">{{move.nombre}}</span>
-              <br> <span style="color:blue"> Tipo: </span> <span>{{move.tipo}}
-              </span>
-              <br> <span style="color:blue"> PP: </span> <span>{{move.pp}}
-              </span>
-            </div>
-            <h5 style="margin-top: 25%;color:blueviolet">Stats</h5>
-            <div style="margin-left: 5%">
+          <div style="background-color: rgba(224, 227, 235, 0.8)" >   
+
+            <div style="width: 100%; padding: 2%; overflow: hidden; ">
+
+              <div style="width: 250px; float: left">
+                <h5 style="color:blueviolet; text-align: center">Movimientos</h5>
+                <div *ngFor="let move of pokemonDatos.movimientosBatalla"
+                  class="datosPokemons">
+                  <span style="color:red">{{move.nombre}}</span>
+                  <br> <span style="color:blue"> Tipo: </span> <span>{{move.tipo}}
+                  </span>
+                  <br> <span style="color:blue"> PP: </span> <span>{{move.pp}}
+                  </span>
+                </div>
+              </div>
+
+              <div style="margin-left: 220px;">
+                <h5 style="color:blueviolet; text-align: center">Stats</h5> </div>
                 <div class="statsDatos">
+                    <span style="color:rgb(253, 54, 5)">PS:</span> <span>
+                      {{pokemonDatos.batalla.ps}} </span>
+                  </div>
+                  <div class="statsDatos">
                     <span style="color:rgb(253, 54, 5)">Ataque:</span> <span>
                       {{pokemonDatos.batalla.ataque}} </span>
                   </div>
@@ -318,15 +334,18 @@
                       {{pokemonDatos.batalla.velocidad}} </span>
                   </div><br>
                   <div class="statsDatos">
-                    <span style="color:rgb(253, 54, 5)">Ataque Especial:</span> <span>
+                    <span style="color:rgb(253, 54, 5)">Ataque Especial:</span>
+                    <span>
                       {{pokemonDatos.batalla['at.especial']}} </span>
                   </div>
                   <div class="statsDatos">
-                    <span style="color:rgb(253, 54, 5)">Defensa Especial:</span> <span>
+                    <span style="color:rgb(253, 54, 5)">Defensa Especial:</span>
+                    <span>
                       {{pokemonDatos.batalla['def.especial']}} </span>
                   </div>
             </div>
-            
+
+
           </div>
         </div>
 
@@ -351,7 +370,7 @@
       pointer;border-radius: 10%;border:2px solid yellow">
       <h5 style="text-align: center;color:blueviolet;">{{poke.nombre}}</h5>
       <div class="card-body" style="width: 100px;height:100px">
-        <img class="card-img-top" style="margin-left:50%"
+        <img class="card-img-top pequeña " style="margin-left:50%"
           src="{{poke.imgFrente}}"
           alt="Card image cap">
       </div>
@@ -369,16 +388,16 @@
 
   <div class="infoPokedex">
 
-    <h2 style="color:chartreuse">{{pokemonActualInfo.nombre}}</h2><br>
+    <h2 style="color:chartreuse;margin-left: 2%">{{pokemonActualInfo.nombre}}</h2><br>
     <div class="imgsPokedexInfo">
       <p class="subTitulosInfoPokedex">Sprite</p> <br>
-      <img src="{{pokemonActualInfo.sprite}}" alt="">
+      <img class="pequeña" src="{{pokemonActualInfo.sprite}}" alt="">
       <hr class="hrPokedex">
       <p class="subTitulosInfoPokedex">Imagen de frente</p><br>
-      <img src="{{pokemonActualInfo.imgFrente}}" alt="">
+      <img class="pequeña" src="{{pokemonActualInfo.imgFrente}}" alt="">
       <hr class="hrPokedex">
       <p class="subTitulosInfoPokedex">Imagen de espalda</p><br>
-      <img src="{{pokemonActualInfo.imgDetras}}" alt="">
+      <img class="pequeña" src="{{pokemonActualInfo.imgDetras}}" alt="">
       <hr class="hrPokedex">
       <p class="subTitulosInfoPokedex">Sonido</p><br>
       <button (click)="suenaPokemon(pokemonActualInfo.sonido)" class="btn

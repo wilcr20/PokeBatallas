@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ObtieneDatosService} from '../../app/servicios/obtiene-datos.service';
+import { ObtieneDatosService } from '../../app/servicios/obtiene-datos.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,10 @@ export class BatallaService {
   equipoRivalPokemon = [];
   nivel = 0;
   niveles = [15, 50, 100];
-  tablaTipos=[];
+  tablaTipos = [];
 
   //Todos los datos a usar durante las batallas se guardarán en este servicio
-  constructor(private obtiene: ObtieneDatosService) { 
+  constructor(private obtiene: ObtieneDatosService) {
     this.obtiene.getEfectividades().subscribe(data => {
       this.tablaTipos = data;
       console.log(this.tablaTipos)
@@ -34,6 +34,7 @@ export class BatallaService {
       min = pokemon.stats[this.nivel].ps[0];
       max = pokemon.stats[this.nivel].ps[1];
       pokemon.batalla.ps = Math.floor(Math.random() * (max - min)) + min + 1;  //Random 
+      pokemon.batalla.psInicial= pokemon.batalla.ps;
 
       //ATAQUE
       min = pokemon.stats[this.nivel].ataque[0];
@@ -74,6 +75,7 @@ export class BatallaService {
       min = pokemon.stats[this.nivel].ps[0];
       max = pokemon.stats[this.nivel].ps[1];
       pokemon.batalla.ps = Math.floor(Math.random() * (max - min)) + min + 1;  //Random 
+      pokemon.batalla.psInicial= pokemon.batalla.ps;
 
       //ATAQUE
       min = pokemon.stats[this.nivel].ataque[0];
@@ -122,10 +124,10 @@ export class BatallaService {
     }
 
     //Poder del ataque, el potencial del ataque
-    let poder= movimientoUsado.potencia;
+    let poder = movimientoUsado.potencia;
 
     //Cantidad de defensa o defensa especial del Pokémon rival, depende del tipo de movimeinto usado (fisico/especial)
-    let defensa =0;
+    let defensa = 0;
     if (movimientoUsado.categoria == "Fisico") {
       defensa = this.actualPokemonRival.batalla.defensa;
     }
@@ -134,23 +136,43 @@ export class BatallaService {
     }
 
     //Es una variable que comprende todos los valores discretos entre 85 y 100 (ambos incluidos).
-    let variacion= Math.floor(Math.random() * (100 - 85)) + 86;  //Random 
+    let variacion = Math.floor(Math.random() * (100 - 85)) + 86;  //Random 
 
     //Puede tomar los valores de 0, 0.25, 0.5, 1, 2 y 4
-    let efectividad= this.obtenerEfectividadAtaque(movimientoUsado);
+    let efectividad = this.obtenerEfectividadAtaque(movimientoUsado);
     // console.log("ataque:",  ataque)
-    // console.log("defensa: ",defensa)
-    // console.log("nivel:", nivel)
-    // console.log("bonif:",bonificacion)
-    // console.log("poder:",poder)
-    // console.log("variac:",variacion)
-    // console.log("efect:",efectividad)
+    //  console.log("defensa: ",defensa)
+    //  console.log("nivel:", nivel)
+    //  console.log("bonif:",bonificacion)
+    //  console.log("poder:",poder)
+    //  console.log("variac:",variacion)
+    //  console.log("efect:",efectividad)
+  
+    let precisionAtaque = movimientoUsado.precisión;
+    let precisionObtenida = Math.floor(Math.random() * (100 - 1)) + 2;  //Un numero random de 1 a 100
 
-    let daño = this.obtenerDañoAtaque(ataque , defensa, nivel, bonificacion,poder, variacion, efectividad);
+    if (movimientoUsado.categoria != "Estado") {
+      let daño = this.obtenerDañoAtaque(ataque, defensa, nivel, bonificacion, poder, variacion, efectividad);
+      if (precisionObtenida <= precisionAtaque) {
+        alert("Daño: " + daño + ", precision: "+ precisionObtenida);
+        return daño;
+      } else {
+        alert("FALLA"+ ", precision: "+ precisionObtenida);
+        return null;
+      }
+    } else {
+      if (precisionObtenida <= precisionAtaque) {
+        alert("Ataque de estado asies : " + ", precision: "+ precisionObtenida);
+        return null;
+      } else {
+        alert("FALLA"+ ", precision: "+ precisionObtenida);
+        return null;
+      }
+    }
 
   }
 
-  
+
   verificaTipoMovimientoIgualTipoPokemon(movimientoUsado) {
     if (movimientoUsado.tipo == this.actualPokemon.tipo1 || movimientoUsado.tipo == this.actualPokemon.tipo2) {
       return 1.5;
@@ -159,38 +181,42 @@ export class BatallaService {
     }
   }
 
-  obtenerEfectividadAtaque(movimientoUsado){
+  obtenerEfectividadAtaque(movimientoUsado) {
     //Falta obtener efectividad con base al segundo tipo del pokemon al que se ataca
+
     let tipo = movimientoUsado.tipo;
-    let tipoPokemon= this.actualPokemonRival.tipo1;
+    let tipoPokemon = this.actualPokemonRival.tipo1;
+    
     for (let index = 0; index < this.tablaTipos.length; index++) {
       let tipoTabla = this.tablaTipos[index];
-       if(tipoTabla.tipo == tipo){ //Si es el mismo tipo del ataque usado, se halla la efectividad del movimiento
-          for (let j = 0; j < tipoTabla.atacando_A_tipo.length; j++) {
-            let tipoDefendiendo = tipoTabla.atacando_A_tipo[j];
-            let typ= Object.keys(tipoDefendiendo)[0];
-            if ( typ == tipoPokemon ){
-              console.log( tipoDefendiendo[typ] ) //Efectividad de ataque , con solo un tipo
-              return tipoDefendiendo[typ];
-            }   
+      if (tipoTabla.tipo == tipo) { //Si es el mismo tipo del ataque usado, se halla la efectividad del movimiento
+        for (let j = 0; j < tipoTabla['atacando_A_tipo'].length; j++) {
+          let tipoDefendiendo = tipoTabla['atacando_A_tipo'][j];
+          let typ = Object.keys(tipoDefendiendo)[0];
+          if (typ == tipoPokemon) {
+
+            //console.log(tipoDefendiendo[typ]) //Efectividad de ataque , con solo un tipo
+            return tipoDefendiendo[typ];
           }
-       }
+        }
+      }
     }
 
-    
+
+
   }
 
-  obtenerDañoAtaque(ataque , defensa, nivel, bonificacion,poder, variacion, efectividad){
-    let daño=0;
+  obtenerDañoAtaque(ataque, defensa, nivel, bonificacion, poder, variacion, efectividad) {
+    let daño = 0;
     //Algoritmo para conseguir el daño de ataque ... https://pokemon.fandom.com/es/wiki/Da%C3%B1o
-    let fact1 = 0.01* bonificacion* efectividad* variacion;
-    let fact2= 0.2* nivel+1;
-    let fact3= fact2*ataque*poder;
-    let fact4= 25*defensa;
-    let fact5 = fact3/fact4;
-    let fact6 = fact5+2;
-    daño = fact1* fact6;
-    alert("Daño: "+ daño)
+    let fact1 = 0.01 * bonificacion * efectividad * variacion;
+    let fact2 = 0.2 * nivel + 1;
+    let fact3 = fact2 * ataque * poder;
+    let fact4 = 25 * defensa;
+    let fact5 = fact3 / fact4;
+    let fact6 = fact5 + 2;
+    daño = fact1 * fact6;
+    return  Math.round(daño) ;
   }
 
 

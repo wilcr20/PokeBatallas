@@ -300,26 +300,26 @@
     },
     {
         "tipo": "Psiquico",
-        "atacando_A_tipo":{
-            "Normal":1,
-            "Lucha":2,
-            "Volador":1,
-            "Veneno":2,
-            "Tierra":1,
-            "Roca":1,
-            "Bicho":1,
-            "Fantasma":1,
-            "Acero":0.5,
-            "Fuego":1,
-            "Agua":1,
-            "Planta":1,
-            "Electrico":1,
-            "Psiquico":0.5,
-            "Hielo":1,
-            "Dragón":1,
-            "Siniestro":0,
-            "Hada":1
-        }
+        "atacando_A_tipo":
+            [{"Normal":1},
+            {"Lucha":2},
+            {"Volador":1},
+            {"Veneno":2},
+            {"Tierra":1},
+            {"Roca":1},
+           { "Bicho":1},
+            {"Fantasma":1},
+            {"Acero":0.5},
+            {"Fuego":1},
+            {"Agua":1},
+            {"Planta":1},
+            {"Electrico":1},
+            {"Psiquico":0.5},
+            {"Hielo":1},
+            {"Dragón":1},
+            {"Siniestro":0},
+            {"Hada":1}]
+        
     },
     {
         "tipo": "Hielo",

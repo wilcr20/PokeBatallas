@@ -149,7 +149,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -308,7 +309,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -467,7 +469,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -626,7 +629,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -785,7 +789,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -944,7 +949,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -1103,7 +1109,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -1262,7 +1269,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -1421,7 +1429,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -1580,7 +1589,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -1741,7 +1751,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -1901,7 +1912,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -2061,7 +2073,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
@@ -2222,7 +2235,8 @@
             "defensa":0,
             "velocidad":0,
             "at.especial":0,
-            "def.especial":0
+            "def.especial":0,            
+            "psInicial":0
         },
         "movimientosBatalla": [
             {"mov":null},
