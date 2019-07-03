@@ -1,5 +1,8 @@
 [
+
+    
     {
+        "efecto":"vuela",
         "nombre": "Placaje",
         "tipo": "Normal",
         "categoria": "Fisico",

@@ -98,7 +98,6 @@
             style="padding-top: 3%;padding-left:23%;"
             src="{{batalla.actualPokemon.imgDetras}}" alt="">
         </div>
-
       </div>
     </div>
   </div>
@@ -107,8 +106,8 @@
 </div>
 
 <div class="sidenav  animated fadeIn "  [ngClass]="{
-  'sidenav':turnoJugador,
-  'sidenavHide': !turnoJugador}"   id="sideMenu" *ngIf="jugar1Player">
+  'sidenav':batalla.turnoJugador,
+  'sidenavHide': !batalla.turnoJugador}"   id="sideMenu" *ngIf="jugar1Player">
   <div class="animated fadeIn" *ngIf="menuBatalla">
 
     <button (click)="lucharPokemon();suenaClick()" style="margin-bottom: 7%"
@@ -203,7 +202,7 @@
         'btnHielo': move.tipo == 'Hielo',
         'btnDragon': move.tipo == 'Dragón',
         'btnHada': move.tipo == 'Hada'
-        }" (click)="luchaMovimiento(move.nombre)">
+        }" (click)="turnoBatalla(move.nombre)">
         {{move.nombre}} <br>
         <i>PP {{move.pp}}</i>
       </button>
