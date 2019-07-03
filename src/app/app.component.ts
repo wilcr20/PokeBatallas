@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ObtieneDatosService } from '../app/servicios/obtiene-datos.service';
 import { BatallaService } from '../app/servicios/batalla.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-root',
@@ -12,10 +14,13 @@ export class AppComponent {
   pokemons = [];
   movimientos = [];
   listaMovimientosActuales = [];
+  pokemonActualInfo: any;
+  pokemonDatos = null;
   audio: any;
+  
+  //Variables booleanas para controlar vistas y funcionalidades
   suena = true;
   jugar1Player = false;
-  selectValor = 6;
   inicioPartida = true;
   muestraPokemonCambio = false;
   muestraAtaquesPokemon = false;
@@ -23,15 +28,17 @@ export class AppComponent {
   pokedex = false;
   infoPokemon = false;
   datosMostrar = false;
-  pokemonActualInfo: any;
-  pokemonDatos = null;
-  psPokemonRival = 100;
-  psPokemon = 100;
+  muestraBotonAtras= true;
+  
+  turnoJugador = true; //Siempre inicia jugador 
+  temporizador = 20; //20 segundos por turno
+  selectValor = 6;  //Cantidad de pokemones a usar por default
 
 
   audioOpening = "http://23.237.126.42/ost/pokemon-gameboy-sound-collection/vvdpydwp/101-opening.mp3";
 
-  constructor(private obtiene: ObtieneDatosService, private batalla: BatallaService) {
+
+  constructor(private obtiene: ObtieneDatosService, private batalla: BatallaService, private toastr: ToastrService) {
 
     // this.audio = new Audio(this.audioOpening);
     // this.audio.play()
@@ -62,8 +69,23 @@ export class AppComponent {
     this.muestraPokemonCambio = false;
     this.menuBatalla = true;
     (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenav";
+  }
 
-    
+
+  //Metodos para realizar cambio de variables *******************************
+  jugarPlayer() {
+    this.elegirNpokemonsRandoms(this.selectValor);
+    (<HTMLImageElement>document.getElementById("btnModal")).click();
+  }
+
+  verPokedex() {
+    this.infoPokemon = false;
+    this.pokedex = true;
+  }
+
+  verPokemon(pokemon) {
+    this.pokemonActualInfo = pokemon;
+    this.infoPokemon = true;
   }
 
   verDatoModal() {
@@ -75,27 +97,80 @@ export class AppComponent {
     this.pokemonDatos = pokemon;
   }
 
+  //******************************************************************** */
+
+
+
+  //Metodo que realiza el cambio de turno del rival al jugador y viceversa
+  cambiaTurno() {
+    this.turnoJugador = !this.turnoJugador;
+    setTimeout(() => {
+      if (!this.turnoJugador) {
+        this.toastr.warning("Turno del Rival", '');
+        this.luchaMovimientoRival(); //llama metodo para que el rival realice un ataque
+      }
+    }, 1450);
+
+  }
 
   //Muestra el menu para cambiar pokemons en batalla 
   cambiarPokemon() {
-    this.inicioPartida = false;
-    this.muestraAtaquesPokemon = false;
-    this.muestraPokemonCambio = true;
-    this.menuBatalla = false;
-    if (this.batalla.equipoPokemon.length <= 3) {
-      (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenavcambiaPokemon1";
+    let cant = this.batalla.obtenerCantidadPokemonesVivosJugador();
+    if (cant > 0) {
+      this.inicioPartida = false;
+      this.muestraAtaquesPokemon = false;
+      this.muestraPokemonCambio = true;
+      this.menuBatalla = false;
+      if (this.batalla.equipoPokemon.length <= 3) {
+        (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenavcambiaPokemon1";
+      } else {
+        (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenavcambiaPokemon2";
+      }
     } else {
-      (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenavcambiaPokemon2";
+      this.toastr.error("Ya no dispones de pokemones. Has perdido :'v", 'GG');
+      this.turnoJugador = true;
+      this.volverMenuPrincipal();
     }
+
+
+  }
+
+  cambiaPokemonRival() {
+    setTimeout(() => {
+      for (let index = 0; index < this.batalla.equipoRivalPokemon.length; index++) {
+        let pokemon = this.batalla.equipoRivalPokemon[index];
+        if (pokemon.batalla.ps > 0) {
+          this.batalla.actualPokemonRival = pokemon; //Cambia al siguiente pokemon en lista
+          this.suenaPokemon(pokemon.sonido);
+          return;
+        }
+      }
+      this.toastr.error("Rival ya no dispone de pokemones. Has Ganado", '');
+      this.turnoJugador = true;
+      this.volverMenuPrincipal();
+    }, 2000);
+
   }
 
   cambiaPokemonActual(pokemon) {  // Cambia el pokemon actual por otro elegido desde la vista
-    this.batalla.actualPokemon = pokemon;
+    if (pokemon == this.batalla.actualPokemon) {
+      this.toastr.error("Este pokemon ya se encuentra en batalla. Seleccione otro", '');
+    } else {
+      if(pokemon.batalla.ps >0){ //Si el pokemon elegido tiene ps aun
+        this.batalla.actualPokemon = pokemon;
+        this.suenaPokemon(pokemon.sonido)
+        this.cambiaTurno();
+        this.muestraBotonAtras= true;
+        this.volverMenuBatalla();
+        return;
+      }else{
+        this.toastr.error("Este pokemon no dispone PS para luchar. Seleccione otro", '');
+      }
 
-    this.suenaPokemon(pokemon.sonido)
-    this.volverMenuBatalla();
-
+      
+    }
   }
+
 
   //Muestra el menu para cambiar pokemons en batalla 
   lucharPokemon() {
@@ -112,50 +187,125 @@ export class AppComponent {
     for (let index = 0; index < this.batalla.actualPokemon.movimientosBatalla.length; index++) {
       let mov = this.batalla.actualPokemon.movimientosBatalla[index];
       if (mov.nombre == pokemonMov) {
-        if (mov.pp == 0) {
+        if (mov.pp == 0) { //Verifica si el movimiento usado dispone de PP para utilizarse
           (<HTMLInputElement>document.getElementById(mov.nombre)).disabled = true;
           (<HTMLInputElement>document.getElementById(mov.nombre)).classList.add('disabled');
           return;
         }
         mov.pp = mov.pp - 1;
 
-
+        //Barra de vida del rival
         let barraVida = (<HTMLInputElement>document.getElementById("psPokemonRival"));
+
+        //Llama el metodo para obtener el daño del amovimiento usado
         let daño = this.batalla.atacaPokemon(mov);
-        let vidaActualRival = this.batalla.actualPokemonRival.batalla.ps;
-        let newVida = vidaActualRival - daño;
+        if(daño == null){
+          this.toastr.error(this.batalla.actualPokemon.nombre + " ha usado " + mov.nombre+ ",pero ha fallado", '');
+        }else{
+          this.toastr.success(this.batalla.actualPokemon.nombre + " ha usado " + mov.nombre, '');
+        }
         
 
-        if (newVida <= 0) {
-          alert("Pokemon Debilitado XD");
-          barraVida.value = "0";
-        } else {
-
-          while (vidaActualRival > newVida) {
-            (function (vidaActualRival) {
-              setTimeout(function () {
-                barraVida.setAttribute("value", vidaActualRival.toString());
-              }, 600)
-              
-            })
-            (vidaActualRival = vidaActualRival - 1)
+        let vidaActualRival = this.batalla.actualPokemonRival.batalla.ps;
+        let newVida = vidaActualRival - daño;//Nueva vida obtenida del rival despues del daño recibido
+        
+        setTimeout(() => {
+          if (newVida <= 0) {
+            barraVida.value = "0";
+            this.toastr.success("Pokemon rival Debilitado", '');
+            this.setVidaRival(0) //Llama metodo de setear vida Rival
+            setTimeout(() => {
+              this.cambiaPokemonRival();
+              this.volverMenuBatalla();
+              this.cambiaTurno();
+            }, 800);
+            return;
           }
+          if (newVida > 0) {
+            while (vidaActualRival > newVida) {  //Realiza el efecto de disminuir la barra de vida de maner agradula
+              (function (vidaActualRival) {
+                setTimeout(function () {
+                  barraVida.setAttribute("value", vidaActualRival.toString());
+                }, 400)
+              })
+                (vidaActualRival = vidaActualRival - 1)
+            }
+            this.setVidaRival(newVida) //Llama metodo de setear vida Rival
+            this.volverMenuBatalla();
+            this.cambiaTurno();
+          }
+          this.volverMenuBatalla(); //Termina ataque
+          return;
+        }, 1200);
 
-        }
-        console.log(barraVida)
-        this.setVida(newVida)
-        this.volverMenuBatalla(); //Termina ataque
-        return;
       }
     }
   }
 
-  setVida(vida){
+
+  //Metodo a ejecutar cuando el rival va  atacar
+  luchaMovimientoRival() {
+    setTimeout(() => {
+      let movimiento = this.batalla.eligeAtaqueRival(); //Llama a metodo del servicio
+      this.atacaPokemoRival(movimiento);
+    }, 1900);
+
+  }
+
+  atacaPokemoRival(movimiento) {
+    //Barra de vida del pokemon actual
+    let barraVidaJugador = (<HTMLInputElement>document.getElementById("psPokemon"));
+
+    //Llama el metodo para obtener el daño del a¿movimiento usado
+    let daño = this.batalla.atacaPokemonRival(movimiento);
+    this.toastr.success(this.batalla.actualPokemonRival.nombre + " ha usado " + movimiento.nombre, '');
+
+    let vidaActual = this.batalla.actualPokemon.batalla.ps;
+    let newVida = vidaActual - daño;//Nueva vida obtenida del rival despues del daño recibido
+
+
+    setTimeout(() => {
+      if (newVida <= 0) {
+        barraVidaJugador.value = "0";
+        this.toastr.error("Pokemon jugador Debilitado", 'Error');
+        this.setVidaJugador(0) //Llama metodo de setear vida Rival
+        setTimeout(() => {
+          this.cambiaTurno();
+          this.muestraBotonAtras= false;
+          this.cambiarPokemon();
+          return;
+        }, 800);
+        return;
+      }
+      if (newVida > 0) {
+        while (vidaActual > newVida) {  //Realiza el efecto de disminuir la barra de vida de maner agradula
+          (function (vidaActual) {
+            setTimeout(function () {
+              barraVidaJugador.setAttribute("value", vidaActual.toString());
+            }, 400)
+          })
+            (vidaActual = vidaActual - 1)
+        }
+        this.setVidaJugador(newVida) //Llama metodo de setear vida Rival
+        this.cambiaTurno();
+      }
+    }, 1400);
+  }
+
+
+
+  setVidaRival(vida) {
     setTimeout(() => {
       this.batalla.actualPokemonRival.batalla.ps = vida;
-    }, 1000);
-    
+    }, 500);
   }
+
+  setVidaJugador(vida) {
+    setTimeout(() => {
+      this.batalla.actualPokemon.batalla.ps = vida;
+    }, 500);
+  }
+
 
   //Metodo retorna lista con los tipos de los movimeintos del pokemon actual : ["agua", "fuego",...]
   obtieneTiposMovimientos() {
@@ -181,11 +331,29 @@ export class AppComponent {
     while (c >= 0) {
       let num1 = Math.floor(Math.random() * tam + 1);
       let num2 = Math.floor(Math.random() * tam + 1);
-      this.batalla.equipoPokemon.push(this.pokemons[num1 - 1]);
-      this.batalla.equipoRivalPokemon.push(this.pokemons[num2 - 1]);
-      c = c - 1;
+      let agregar1 = this.verificaPokemonRepetido(this.pokemons[num1 - 1], this.batalla.equipoPokemon);
+      let agregar2 = this.verificaPokemonRepetido(this.pokemons[num2 - 1], this.batalla.equipoRivalPokemon);
+      if (!agregar1 && !agregar2) {
+        this.batalla.equipoPokemon.push(this.pokemons[num1 - 1]);
+        this.batalla.equipoRivalPokemon.push(this.pokemons[num2 - 1]);
+        c = c - 1;
+      }
     }
+  }
 
+  //Metodo para evitar pokemon repetido en equipo
+  verificaPokemonRepetido(pokemon, lista) {
+    if (lista.length == 0) { //No hay pokemons en equipo aun
+      return false;
+    }
+    //Si hay al menos un pokemon ya agregado en el equipo
+    for (let index = 0; index < lista.length; index++) {
+      let pk = lista[index];
+      if (pk == pokemon) { // Si haya al pokemon ya agregado en lista
+        return true;
+      }
+    }
+    return false;
   }
 
   //dado el nombre, retorna el objeto movimiento
@@ -199,16 +367,6 @@ export class AppComponent {
     return null;
   }
 
-  //botones
-  jugarPlayer() {
-    this.elegirNpokemonsRandoms(this.selectValor);
-    (<HTMLImageElement>document.getElementById("btnModal")).click();
-  }
-
-  verPokedex() {
-    this.infoPokemon = false;
-    this.pokedex = true;
-  }
 
   setLevel(nivel) {
     this.batalla.nivel = nivel;
@@ -224,8 +382,6 @@ export class AppComponent {
     this.batalla.setearStatsPokemons();
     this.batalla.setearStatsPokemonsRival();
 
-    this.psPokemon = this.batalla.actualPokemon.batalla.psInicial;
-    this.psPokemonRival = this.batalla.actualPokemonRival.batalla.psInicial;
 
     this.obtieneTiposMovimientos();
     this.setearMovimientosPokemons()
@@ -259,10 +415,7 @@ export class AppComponent {
     console.log("Equipo Rival: ", this.batalla.equipoRivalPokemon)
   }
 
-  verPokemon(pokemon) {
-    this.pokemonActualInfo = pokemon;
-    this.infoPokemon = true;
-  }
+
 
   //Sonidos
 
@@ -279,12 +432,12 @@ export class AppComponent {
     }
   }
 
-
+  //Metodo recibe una url y reproduce sonido
   suenaPokemon(music) {
     let audio = new Audio(music);
     audio.play();
   }
-
+  //etodo reproduce sonido de click
   suenaClick() {
     let audio = new Audio("http://www.cicorp.com/music/Microsoft/Office97/Utopia%20Close.WAV");
     audio.play();

@@ -403,8 +403,115 @@
         "precisión":100,
         "potencia":15,
         "pp":35
+    },
+    {
+        "nombre":"Ataque furia",
+        "tipo":"Normal",
+        "categoria":"Fisico",
+        "efecto":"puedeRepetirAtaque",
+        "precisión":85,
+        "potencia":15,
+        "pp":20
+    },
+    {
+        "nombre":"Corte",
+        "tipo":"Normal",
+        "categoria":"Fisico",
+        "efecto":"puedeRepetirAtaque",
+        "precisión":95,
+        "potencia":50,
+        "pp":30
+    },
+    {
+        "nombre":"Pin misil",
+        "tipo":"Bicho",
+        "categoria":"Fisico",
+        "efecto":null,
+        "precisión":95,
+        "potencia":25,
+        "pp":20
+    },
+    {
+        "nombre":"Carga tóxica",
+        "tipo":"Veneno",
+        "categoria":"Especial",
+        "efecto":null,
+        "precisión":100,
+        "potencia":65,
+        "pp":10
+    },
+    {
+        "nombre":"Agilidad",
+        "tipo":"Psiquico",
+        "categoria":"Estado",
+        "efecto":"subeVelocidad2",
+        "precisión":100,
+        "potencia":0,
+        "pp":30
+    },
+    {
+        "nombre":"Aguijón letal",
+        "tipo":"Bicho",
+        "categoria":"Fisico",
+        "efecto":"subeVelocidad2",
+        "precisión":100,
+        "potencia":50,
+        "pp":25
+    },
+    {
+        "nombre":"Ataque arena",
+        "tipo":"Tierra",
+        "categoria":"Estado",
+        "efecto":"bajaPrecision",
+        "precisión":100,
+        "potencia":0,
+        "pp":15
+    },
+    {
+        "nombre":"Ataque rápido",
+        "tipo":"Normal",
+        "categoria":"Fisico",
+        "efecto":"atacaPrimero",
+        "precisión":100,
+        "potencia":40,
+        "pp":30
+    },
+    {
+        "nombre":"Ataque aéreo",
+        "tipo":"Volador",
+        "categoria":"Fisico",
+        "efecto":"puedeRetroceder",
+        "precisión":90,
+        "potencia":140,
+        "pp":5
+    },
+    {
+        "nombre":"Danza pluma",
+        "tipo":"Volador",
+        "categoria":"Estado",
+        "efecto":"bajaAtaque2",
+        "precisión":100,
+        "potencia":0,
+        "pp":15
+    },
+    {
+        "nombre":"Rapidez",
+        "tipo":"Normal",
+        "categoria":"Especial",
+        "efecto":"nuncaFalla",
+        "precisión":100,
+        "potencia":60,
+        "pp":20
+    },
+    {
+        "nombre":"Ala de acero",
+        "tipo":"Acero",
+        "categoria":"Fisico",
+        "efecto":null,
+        "precisión":90,
+        "potencia":70,
+        "pp":25
     }
-    
 
     
 ]

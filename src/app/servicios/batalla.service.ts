@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ObtieneDatosService } from '../../app/servicios/obtiene-datos.service';
+import { ToastrService } from 'ngx-toastr';  
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +17,7 @@ export class BatallaService {
   tablaTipos = [];
 
   //Todos los datos a usar durante las batallas se guardarán en este servicio
-  constructor(private obtiene: ObtieneDatosService) {
+  constructor(private obtiene: ObtieneDatosService, private toastr: ToastrService) {
     this.obtiene.getEfectividades().subscribe(data => {
       this.tablaTipos = data;
       console.log(this.tablaTipos)
@@ -105,6 +107,13 @@ export class BatallaService {
 
   }
 
+  //Metodo para retornar un movimiento random del pokemon
+  eligeAtaqueRival(){
+    let movimientos = this.actualPokemonRival.movimientosBatalla;
+    let n = Math.floor(Math.random() * (3 - 0)) + 1;  //Random 
+    return movimientos[n]; 
+  }
+
   atacaPokemon(movimientoUsado) {
     //console.log(this.actualPokemon.tipo1, " vs ", this.actualPokemonRival.tipo1);
 
@@ -139,7 +148,7 @@ export class BatallaService {
     let variacion = Math.floor(Math.random() * (100 - 85)) + 86;  //Random 
 
     //Puede tomar los valores de 0, 0.25, 0.5, 1, 2 y 4
-    let efectividad = this.obtenerEfectividadAtaque(movimientoUsado);
+    let efectividad = this.obtenerEfectividadAtaqueJugador(movimientoUsado);
     // console.log("ataque:",  ataque)
     //  console.log("defensa: ",defensa)
     //  console.log("nivel:", nivel)
@@ -154,10 +163,10 @@ export class BatallaService {
     if (movimientoUsado.categoria != "Estado") {
       let daño = this.obtenerDañoAtaque(ataque, defensa, nivel, bonificacion, poder, variacion, efectividad);
       if (precisionObtenida <= precisionAtaque) {
-        alert("Daño: " + daño + ", precision: "+ precisionObtenida);
+        //alert("Daño: " + daño + ", precision: "+ precisionObtenida);
         return daño;
       } else {
-        alert("FALLA"+ ", precision: "+ precisionObtenida);
+        this.toastr.error("Ha fallado el movimiento ",'Error') ;
         return null;
       }
     } else {
@@ -165,12 +174,92 @@ export class BatallaService {
         alert("Ataque de estado asies : " + ", precision: "+ precisionObtenida);
         return null;
       } else {
-        alert("FALLA"+ ", precision: "+ precisionObtenida);
+        this.toastr.error("Ha fallado el movimiento ",'Error') ;
         return null;
       }
     }
 
   }
+
+  atacaPokemonRival(movimientoUsado) {
+
+    //Si el ataque es del mismo tipo que el Pokémon que lo lanza toma un valor de 1.5, si el ataque es de un tipo diferente al del Pokémon que lo lanza toma un valor de 1.
+    let bonificacion = this.verificaTipoMovimientoIgualTipoPokemonRival(movimientoUsado);
+
+    //Nivel del pokemon que ataca
+    let nivel = this.niveles[this.nivel];
+
+    //Cantidad de ataque o ataque especial del Pokémon rival, depende del tipo de movimeinto usado (fisico/especial)
+    let ataque = 0;
+    if (movimientoUsado.categoria == "Fisico") {
+      ataque = this.actualPokemonRival.batalla.ataque;
+    }
+    if (movimientoUsado.categoria == "Especial") {
+      ataque = this.actualPokemonRival.batalla['at.especial'];
+    }
+
+    //Poder del ataque, el potencial del ataque
+    let poder = movimientoUsado.potencia;
+
+    //Cantidad de defensa o defensa especial del Pokémon , depende del tipo de movimeinto usado (fisico/especial)
+    let defensa = 0;
+    if (movimientoUsado.categoria == "Fisico") {
+      defensa = this.actualPokemon.batalla.defensa;
+    }
+    if (movimientoUsado.categoria == "Especial") {
+      defensa = this.actualPokemon.batalla['def.especial'];
+    }
+
+    //Es una variable que comprende todos los valores discretos entre 85 y 100 (ambos incluidos).
+    let variacion = Math.floor(Math.random() * (100 - 85)) + 86;  //Random 
+
+    //Puede tomar los valores de 0, 0.25, 0.5, 1, 2 y 4
+    let efectividad = this.obtenerEfectividadAtaqueRival(movimientoUsado);
+    // console.log("ataque:",  ataque)
+    //  console.log("defensa: ",defensa)
+    //  console.log("nivel:", nivel)
+    //  console.log("bonif:",bonificacion)
+    //  console.log("poder:",poder)
+    //  console.log("variac:",variacion)
+    //  console.log("efect:",efectividad)
+  
+    let precisionAtaque = movimientoUsado.precisión;
+    let precisionObtenida = Math.floor(Math.random() * (100 - 1)) + 2;  //Un numero random de 1 a 100
+
+    if (movimientoUsado.categoria != "Estado") {
+      let daño = this.obtenerDañoAtaque(ataque, defensa, nivel, bonificacion, poder, variacion, efectividad);
+      
+      //Posibilidad de que un aatque sea golpe critico sera de 7%
+      let golpeCritico = Math.floor(Math.random() * (100 - 1)) + 2;  //Un numero random de 1 a 100
+      
+      if (precisionObtenida <= precisionAtaque) { //Si el ataque no falla
+        
+        //Se calcula si hay golpe critico o no
+        if(golpeCritico <= 7 ){ 
+          let adicional = daño *0.5; // se suma 50% de daño , por ser critico
+          this.toastr.warning("Golpe Critico!!! ",'Warning') ;
+          return daño+adicional;
+        }else{
+          return daño;
+        }
+        
+      } else {
+       // this.toastr.error("Ha fallado el movimiento ",'Error') ;
+        return null;
+      }
+    } else {  //Ataque falla
+      if (precisionObtenida <= precisionAtaque) {
+        alert("Ataque de estado : " + ", precision: "+ precisionObtenida);
+        return null;
+      } else {
+        //this.toastr.error("Ha fallado el movimiento ",'Error') ;
+        return null;
+      }
+    }
+
+  }
+
+
 
 
   verificaTipoMovimientoIgualTipoPokemon(movimientoUsado) {
@@ -181,7 +270,15 @@ export class BatallaService {
     }
   }
 
-  obtenerEfectividadAtaque(movimientoUsado) {
+  verificaTipoMovimientoIgualTipoPokemonRival(movimientoUsado) {
+    if (movimientoUsado.tipo == this.actualPokemonRival.tipo1 || movimientoUsado.tipo == this.actualPokemonRival.tipo2) {
+      return 1.5;
+    } else {
+      return 1;
+    }
+  }
+
+  obtenerEfectividadAtaqueJugador(movimientoUsado) {
     //Falta obtener efectividad con base al segundo tipo del pokemon al que se ataca
 
     let tipo = movimientoUsado.tipo;
@@ -201,9 +298,26 @@ export class BatallaService {
         }
       }
     }
+  }
 
+  obtenerEfectividadAtaqueRival(movimientoUsado) {
+    //Falta obtener efectividad con base al segundo tipo del pokemon al que se ataca
 
-
+    let tipo = movimientoUsado.tipo;
+    let tipoPokemon = this.actualPokemon.tipo1;
+    
+    for (let index = 0; index < this.tablaTipos.length; index++) {
+      let tipoTabla = this.tablaTipos[index];
+      if (tipoTabla.tipo == tipo) { //Si es el mismo tipo del ataque usado, se halla la efectividad del movimiento
+        for (let j = 0; j < tipoTabla['atacando_A_tipo'].length; j++) {
+          let tipoDefendiendo = tipoTabla['atacando_A_tipo'][j];
+          let typ = Object.keys(tipoDefendiendo)[0];
+          if (typ == tipoPokemon) {
+            return tipoDefendiendo[typ];
+          }
+        }
+      }
+    }
   }
 
   obtenerDañoAtaque(ataque, defensa, nivel, bonificacion, poder, variacion, efectividad) {
@@ -217,6 +331,17 @@ export class BatallaService {
     let fact6 = fact5 + 2;
     daño = fact1 * fact6;
     return  Math.round(daño) ;
+  }
+
+  obtenerCantidadPokemonesVivosJugador(){
+    let n=0;
+    for (let index = 0; index < this.equipoPokemon.length; index++) {
+      let pokemon = this.equipoPokemon[index];
+      if(pokemon.batalla.ps >0){
+        n= n+1;
+      }
+    }
+    return n;
   }
 
 

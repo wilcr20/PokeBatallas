@@ -17,7 +17,7 @@
                     {
                         "nombre": "Drenadoras"
                     },
-                    {
+                    { 
                         "nombre": "Látigo Cepa"
                     },
                     {
@@ -2142,6 +2142,647 @@
                     },
                     {
                         "nombre":"Electrotela"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0,            
+            "psInicial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    },
+
+    {
+        "nombre": "Beedrill",
+        "tipo1": "Bicho",
+        "tipo2": "Veneno",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/beedrill.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/3/3a/Grito_de_Beedrill.ogg/revision/latest?cb=20140801130755",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/6/61/Beedrill_XY.gif/revision/latest?cb=20140108162709",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/a/a7/Beedrill_espalda_G6.gif/revision/latest?cb=20161107175330",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre":"Fortaleza"
+                    },
+                    {
+                        "nombre":"Ataque furia"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Corte"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Ataque furia"
+                    },
+                    {
+                        "nombre":"Tóxico"
+                    },
+                    {
+                        "nombre":"Pin misil"
+                    },
+                    {
+                        "nombre":"Carga tóxica"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Carga tóxica"
+                    },
+                    {
+                        "nombre":"Agilidad"
+                    },
+                    {
+                        "nombre":"Picadura"
+                    },
+                    {
+                        "nombre":"Aguijón letal"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0,            
+            "psInicial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    },
+    {
+        "nombre": "Pidgey",
+        "tipo1":"Normal",
+        "tipo2":"Volador",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/pidgey.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/2/20/Grito_de_Pidgey.ogg/revision/latest?cb=20140806043400",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/c/c5/Pidgey_XY.gif/revision/latest?cb=20140214044050",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/72/Pidgey_espalda_G6.gif/revision/latest?cb=20140119201621",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre":"Tornado"
+                    },
+                    {
+                        "nombre":"Placaje"
+                    },
+                    {
+                        "nombre":"Ataque arena"
+                    },
+                    {
+                        "nombre":"Ataque rápido"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Ataque ala"
+                    },
+                    {
+                        "nombre":"Ataque rápido"
+                    },
+                    {
+                        "nombre":"Doble filo"
+                    },
+                    {
+                        "nombre":"Vuelo"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Vuelo"
+                    },
+                    {
+                        "nombre":"Ataque aéreo"
+                    },
+                    {
+                        "nombre":"Agilidad"
+                    },
+                    {
+                        "nombre":"Ataque arena"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0,            
+            "psInicial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    },
+    {
+        "nombre": "Pidgeotto",
+        "tipo1":"Normal",
+        "tipo2":"Volador",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/pidgeotto.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/7d/Grito_de_Pidgeotto.ogg/revision/latest?cb=20140806043445",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/d/df/Pidgeotto_XY.gif/revision/latest?cb=20140111182400",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/c/cb/Pidgeotto_espalda_G6.gif/revision/latest?cb=20140119201621",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre":"Tornado"
+                    },
+                    {
+                        "nombre":"Ataque rápido"
+                    },
+                    {
+                        "nombre":"Ataque arena"
+                    },
+                    {
+                        "nombre":"Agilidad"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Derribo"
+                    },
+                    {
+                        "nombre":"Vuelo"
+                    },
+                    {
+                        "nombre":"Ataque ala"
+                    },
+                    {
+                        "nombre":"Ataque arena"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Vuelo"
+                    },
+                    {
+                        "nombre":"Tajo aéreo"
+                    },
+                    {
+                        "nombre":"Ataque rápido"
+                    },
+                    {
+                        "nombre":"Ala de acero"
+                    }
+                ]
+            }
+        ],
+        "stats": [
+            {
+                "nivel": 15,
+                "ps": [
+                    42,
+                    56
+                ],
+                "ataque": [
+                    23,
+                    38
+                ],
+                "defensa": [
+                    29,
+                    43
+                ],
+                "velocidad": [
+                    22,
+                    36
+                ],
+                "at.especial": [
+                    24,
+                    38
+                ],
+                "def.especial": [
+                    29,
+                    43
+                ]
+            },
+            {
+                "nivel": 50,
+                "ps": [
+                    119,
+                    166
+                ],
+                "ataque": [
+                    68,
+                    115
+                ],
+                "defensa": [
+                    85,
+                    132
+                ],
+                "velocidad": [
+                    63,
+                    110
+                ],
+                "at.especial": [
+                    70,
+                    117
+                ],
+                "def.especial": [
+                    85,
+                    132
+                ]
+            },
+            {
+                "nivel": 100,
+                "ps": [
+                    268,
+                    362
+                ],
+                "ataque": [
+                    171,
+                    265
+                ],
+                "defensa": [
+                    205,
+                    299
+                ],
+                "velocidad": [
+                    161,
+                    255
+                ],
+                "at.especial": [
+                    175,
+                    269
+                ],
+                "def.especial": [
+                    215,
+                    309
+                ]
+            }
+        ],
+        "batalla":{
+            "ps":0,
+            "ataque":0,
+            "defensa":0,
+            "velocidad":0,
+            "at.especial":0,
+            "def.especial":0,            
+            "psInicial":0
+        },
+        "movimientosBatalla": [
+            {"mov":null},
+            {"mov":null},
+            {"mov":null},
+            {"mov":null}
+        ]
+    },
+    {
+        "nombre": "Pidgeot",
+        "tipo1":"Normal",
+        "tipo2":"Volador",
+        "sprite": "https://img.pokemondb.net/sprites/sun-moon/icon/pidgeot.png",
+        "sonido": "https://vignette.wikia.nocookie.net/es.pokemon/images/7/7a/Grito_de_Pidgeot.ogg/revision/latest?cb=20140806043548",
+        "imgFrente": "https://vignette.wikia.nocookie.net/es.pokemon/images/f/f7/Pidgeot_XY.gif/revision/latest?cb=20140807021118",
+        "imgDetras": "https://vignette.wikia.nocookie.net/es.pokemon/images/1/16/Pidgeot_espalda_G6.gif/revision/latest?cb=20140119201620",
+        "movimientos": [
+            {
+                "nivel": 15,
+                "movimientos": [
+                    {
+                        "nombre":"Ataque rápido"
+                    },
+                    {
+                        "nombre":"Ataque ala"
+                    },
+                    {
+                        "nombre":"Vuelo"
+                    },
+                    {
+                        "nombre":"Agilidad"
+                    }
+                ]
+            },
+            {
+                "nivel": 50,
+                "movimientos": [
+                    {
+                        "nombre":"Vuelo"
+                    },
+                    {
+                        "nombre":"Tajo aéreo"
+                    },
+                    {
+                        "nombre":"Danza pluma"
+                    },
+                    {
+                        "nombre":"Ataque rápido"
+                    }
+                ]
+            },
+            {
+                "nivel": 100,
+                "movimientos": [
+                    {
+                        "nombre":"Doble filo"
+                    },
+                    {
+                        "nombre":"Vuelo"
+                    },
+                    {
+                        "nombre":"Rapidez"
+                    },
+                    {
+                        "nombre":"Ala de acero"
                     }
                 ]
             }

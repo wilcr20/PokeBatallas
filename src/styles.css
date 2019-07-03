@@ -1,8 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '~ngx-toastr/toastr.css';  
 
 
 body{
     width: 100%;
     background-color: black;
+}
+
+.toast-top-center {
+    top: 70%;
+    padding: 2% 42% 2% 80%;
+}
+
+.animated {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
 }
