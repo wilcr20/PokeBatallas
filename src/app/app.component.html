@@ -73,9 +73,10 @@
               id="psPokemonRival"
               value="{{batalla.actualPokemonRival.batalla.ps}}"
               max="{{batalla.actualPokemonRival.batalla.psInicial}}"></progress>
-               <div style="width: 10%; background-color: white;margin-left: 73%;border-radius:15%">
-                 <span style="text-align: center">{{batalla.actualPokemonRival.batalla.ps}}/{{batalla.actualPokemonRival.batalla.psInicial}}</span> 
-               </div>
+            <div style="width: 10%; background-color: white;margin-left:
+              73%;border-radius:15%">
+              <span style="text-align: center">{{batalla.actualPokemonRival.batalla.ps}}/{{batalla.actualPokemonRival.batalla.psInicial}}</span>
+            </div>
           </div>
 
           <img class="pokemonRival animated fadeIn"
@@ -90,8 +91,9 @@
             value="{{batalla.actualPokemon.batalla.ps}}"
             max="{{batalla.actualPokemon.batalla.psInicial}}" id="psPokemon">
           </progress>
-          <div style="width: 10%; background-color: white;margin-left: 1%;border-radius:15%">
-            <span style="margin-left: 5%">{{batalla.actualPokemon.batalla.ps}}/{{batalla.actualPokemon.batalla.psInicial}}</span> 
+          <div style="width: 10%; background-color: white;margin-left:
+            1%;border-radius:15%">
+            <span style="margin-left: 5%">{{batalla.actualPokemon.batalla.ps}}/{{batalla.actualPokemon.batalla.psInicial}}</span>
           </div>
           <img class="pokemonJugador animated fadeIn"
             (click)="suenaPokemon(batalla.actualPokemon.sonido)"
@@ -105,9 +107,9 @@
 
 </div>
 
-<div class="sidenav  animated fadeIn "  [ngClass]="{
+<div class="sidenav animated fadeIn"[ngClass]="{
   'sidenav':batalla.turnoJugador,
-  'sidenavHide': !batalla.turnoJugador}"   id="sideMenu" *ngIf="jugar1Player">
+  'sidenavHide': !batalla.turnoJugador}" id="sideMenu" *ngIf="jugar1Player">
   <div class="animated fadeIn" *ngIf="menuBatalla">
 
     <button (click)="lucharPokemon();suenaClick()" style="margin-bottom: 7%"
@@ -132,7 +134,7 @@
 
 
   <!-- Inicio contenido de menu batalla -->
-  <div id="contenidoMenuBatalla  animated fadeIn ">
+  <div id="contenidoMenuBatalla animated fadeIn">
     <!-- Logo pokebola -->
     <img *ngIf="inicioPartida" style="margin-left:13%;margin-top:5%"
       id="logoPoke"
@@ -141,8 +143,9 @@
 
     <!-- Inicio menu cambiar pokemon -->
     <div *ngIf="muestraPokemonCambio" style="margin-top:3%">
-      <button  *ngIf="muestraBotonAtras"  class="btn btn-danger" style="display: block;
-        width:90%;margin:auto;" >
+      <button *ngIf="muestraBotonAtras" class="btn btn-danger" style="display:
+        block;
+        width:90%;margin:auto;">
         <strong style="color:black" (click)="volverMenuBatalla();suenaClick()">
           Volver atrás</strong>
       </button>
@@ -173,14 +176,16 @@
         <img src="{{pokemon.sprite}}" alt="" srcset=""> {{pokemon.nombre}}
         <br>
         <!-- Barra de vida por pokemon -->
-        <progress value="{{pokemon.batalla.ps}}" max="{{pokemon.batalla.psInicial}}"></progress>
+        <progress value="{{pokemon.batalla.ps}}"
+          max="{{pokemon.batalla.psInicial}}"></progress>
       </button>
     </div>
     <!-- Fin menu cambiar pokemon -->
 
     <!-- Inicio menu ataques pokemon -->
     <div style="margin-top:10%" *ngIf="muestraAtaquesPokemon">
-      <button class="btn btn-light animated fadeIn btnLuchaPokemon animated fadeIn"
+      <button class="btn btn-light animated fadeIn btnLuchaPokemon animated
+        fadeIn"
         id="{{move.nombre}}" *ngFor="let move of
         batalla.actualPokemon.movimientosBatalla;"
         [ngClass]="{
@@ -260,7 +265,7 @@
 
 
 <!-- Incio Modal rendirse-->
-<div class="modal fade  animated fadeIn " id="rendirse" tabindex="-1" role="dialog"
+<div class="modal fade animated fadeIn"id="rendirse" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -312,7 +317,8 @@
 
 
 <!-- Incio Modal Datos Pokemones-->
-<div class="modal fade animated fadeIn" id="datoEquipo" tabindex="-1" role="dialog"
+<div class="modal fade animated fadeIn" id="datoEquipo" tabindex="-1"
+  role="dialog"
   aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -337,7 +343,7 @@
           </button>
         </div>
 
-        <div *ngIf="datosMostrar" class="animated fadeIn" >
+        <div *ngIf="datosMostrar" class="animated fadeIn">
           <div style="background-color: rgba(224, 227, 235, 0.8)">
 
             <div style="width: 100%; padding: 2%; overflow: hidden;">
@@ -399,7 +405,7 @@
 
 <!-- Pokedex -->
 
-<div *ngIf="pokedex && !infoPokemon"  class="animated fadeIn" >
+<div *ngIf="pokedex && !infoPokemon" class="animated fadeIn">
   <button (click)="volverMenuPrincipal();suenaClick()" class="btn btn-danger
     btnVolverAtras">
     <img
@@ -411,7 +417,7 @@
       pointer;border-radius: 10%;border:2px solid yellow">
       <h5 style="text-align: center;color:blueviolet;">{{poke.nombre}}</h5>
       <div class="card-body" style="width: 100px;height:100px">
-        <img class="card-img-top pequeña"style="margin-left:50%"
+        <img class="card-img-top pequeña" style="margin-left:50%"
           src="{{poke.imgFrente}}"
           alt="Card image cap">
       </div>
@@ -419,7 +425,7 @@
   </div>
 </div>
 
-<div *ngIf="infoPokemon" class="animated fadeIn" >
+<div *ngIf="infoPokemon" class="animated fadeIn">
   <button (click)="verPokedex();suenaClick()"
     class="btn
     btn-danger btnVolverAtras">
@@ -427,8 +433,7 @@
       src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUxMS42MyA1MTEuNjMxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTEuNjMgNTExLjYzMTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxwYXRoIGQ9Ik00OTYuNSwyMzMuODQyYy0zMC44NDEtNzYuNzA2LTExNC4xMTItMTE1LjA2LTI0OS44MjMtMTE1LjA2aC02My45NTNWNDUuNjkzYzAtNC45NTItMS44MDktOS4yMzUtNS40MjQtMTIuODUgICBjLTMuNjE3LTMuNjE3LTcuODk2LTUuNDI2LTEyLjg0Ny01LjQyNmMtNC45NTIsMC05LjIzNSwxLjgwOS0xMi44NSw1LjQyNkw1LjQyNCwxNzkuMDIxQzEuODA5LDE4Mi42NDEsMCwxODYuOTIyLDAsMTkxLjg3MSAgIGMwLDQuOTQ4LDEuODA5LDkuMjI5LDUuNDI0LDEyLjg0N0wxNTEuNjA0LDM1MC45YzMuNjE5LDMuNjEzLDcuOTAyLDUuNDI4LDEyLjg1LDUuNDI4YzQuOTQ3LDAsOS4yMjktMS44MTQsMTIuODQ3LTUuNDI4ICAgYzMuNjE2LTMuNjE0LDUuNDI0LTcuODk4LDUuNDI0LTEyLjg0OHYtNzMuMDk0aDYzLjk1M2MxOC42NDksMCwzNS4zNDksMC41NjgsNTAuMDk5LDEuNzA4YzE0Ljc0OSwxLjE0MywyOS40MTMsMy4xODksNDMuOTY4LDYuMTQzICAgYzE0LjU2NCwyLjk1LDI3LjIyNCw2Ljk5MSwzNy45NzksMTIuMTM1YzEwLjc1Myw1LjE0NCwyMC43OTQsMTEuNzU2LDMwLjEyMiwxOS44NDJjOS4zMjksOC4wOTQsMTYuOTQzLDE3LjcsMjIuODQ3LDI4LjgzOSAgIGM1Ljg5NiwxMS4xMzYsMTAuNTEzLDI0LjMxMSwxMy44NDYsMzkuNTM5YzMuMzI2LDE1LjIyOSw0Ljk5NywzMi40NTYsNC45OTcsNTEuNjc1YzAsMTAuNDY2LTAuNDc5LDIyLjE3Ni0xLjQyOCwzNS4xMTggICBjMCwxLjEzNy0wLjIzNiwzLjM3NS0wLjcxNSw2LjcwOGMtMC40NzMsMy4zMzMtMC43MTIsNS44NTItMC43MTIsNy41NjJjMCwyLjg1MSwwLjgwOCw1LjIzMiwyLjQyMyw3LjEzNiAgIGMxLjYyMiwxLjkwMiwzLjg2LDIuODUxLDYuNzE0LDIuODUxYzMuMDQ2LDAsNS43MDgtMS42MTUsNy45OTQtNC44NTNjMS4zMjgtMS43MTEsMi41NjEtMy44MDYsMy43MS02LjI4MyAgIGMxLjE0My0yLjQ3MSwyLjQzLTUuMzI1LDMuODU0LTguNTYyYzEuNDMxLTMuMjM3LDIuNDMtNS41MTMsMi45OTgtNi44NDhjMjQuMTctNTQuMjM4LDM2LjI1OC05Ny4xNTgsMzYuMjU4LTEyOC43NTYgICBDNTExLjYzLDI5MS4wMzksNTA2LjU4OSwyNTkuMzQ0LDQ5Ni41LDIzMy44NDJ6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
   </button><br><br>
 
-  <div class="infoPokedex animated fadeIn">
-
+  <div class="infoPokedex animated fadeIn" id="infoPokedexCard">
     <h2 style="color:chartreuse;margin-left: 2%">{{pokemonActualInfo.nombre}}</h2><br>
     <div class="imgsPokedexInfo">
       <p class="subTitulosInfoPokedex">Sprite</p> <br>
@@ -447,6 +452,51 @@
         <img
           src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE2IDE2IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNiAxNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIzMnB4IiBoZWlnaHQ9IjMycHgiPgo8Zz4KCTxwYXRoIGQ9Ik04LDBDMy41ODIsMCwwLDMuNTgyLDAsOHMzLjU4Miw4LDgsOHM4LTMuNTgyLDgtOFMxMi40MTgsMCw4LDB6IE01LDEyVjRsNyw0TDUsMTJ6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg=="/>
       </button>
+      <hr class="hrPokedex">
+
+      <div><br>
+        <h2 style="color:rgb(21, 22, 21)">Stats y Movimientos</h2><br>
+        <button class="btn btn-success" (click)="muestraStast(0)" type="button"
+          data-toggle="collapse" style="margin-right: 2%"
+          data-target=".multi-collapse" aria-expanded="false"
+          aria-controls="multiCollapseExample1 multiCollapseExample2">Nivel 15</button>
+        <button class="btn btn-warning" (click)="muestraStast(1)" type="button"
+          data-toggle="collapse" style="margin-right: 2%"
+          data-target=".multi-collapse" aria-expanded="false"
+          aria-controls="multiCollapseExample1 multiCollapseExample2">Nivel 50</button>
+        <button class="btn btn-danger" (click)="muestraStast(2)" type="button"
+          data-toggle="collapse" data-target=".multi-collapse"
+          aria-expanded="false" aria-controls="multiCollapseExample1
+          multiCollapseExample2">Nivel 100</button>
+      </div><br>
+      <div *ngIf="!statsMovesMostrar" class="alert alert-info" style="width:
+        60%;margin:auto" role="alert">
+        Seleccione un nivel para mostrar la respectiva información
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse cardMoves"id="multiCollapseExample1">
+            <h5 style="color:red">Movimientos</h5>
+            <p style="color:green;"*ngFor="let move of
+              pokemonActualInfo.movimientos[idx].movimientos">
+               <b> - {{move.nombre}}</b>
+            </p>
+          </div>
+        </div>
+        <div class="col">
+          <div class="collapse multi-collapse cardMoves"
+            id="multiCollapseExample2">
+            <h5 style="color:red" >Rango de Stast [a,b] </h5>
+            <b><span>PS: </span></b>{{pokemonActualInfo.stats[idx].ps}} <br>
+            <b><span>Ataque: </span></b>{{pokemonActualInfo.stats[idx].ataque}} <br>
+            <b><span>Defensa: </span></b>{{pokemonActualInfo.stats[idx].defensa}} <br>
+            <b><span>Velocidad: </span></b>{{pokemonActualInfo.stats[idx].velocidad}} <br>
+            <b><span>Ataque Especial: </span></b>{{pokemonActualInfo.stats[idx]['at.especial']}} <br>
+            <b><span>Defensa Especial: </span></b>{{pokemonActualInfo.stats[idx]['def.especial']}} <br>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>

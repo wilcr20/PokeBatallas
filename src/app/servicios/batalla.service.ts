@@ -16,7 +16,7 @@ export class BatallaService {
   niveles = [15, 50, 100];
   tablaTipos = [];
   turnoJugador = true; //Siempre inicia jugador 
-  
+
 
   //Todos los datos a usar durante las batallas se guardarán en este servicio
   constructor(private obtiene: ObtieneDatosService, private toastr: ToastrService) {
@@ -151,7 +151,13 @@ export class BatallaService {
     let variacion = Math.floor(Math.random() * (100 - 85)) + 86;  //Random 
 
     //Puede tomar los valores de 0, 0.25, 0.5, 1, 2 y 4
-    let efectividad = this.obtenerEfectividadAtaqueJugador(movimientoUsado);
+    let efectividad = 0;
+    if (this.actualPokemonRival.tipo2 == null) {
+      efectividad = this.obtenerEfectividad1TipoAtaqueJugador(movimientoUsado);  //Si solo posee un tipo
+    } else {
+      efectividad = this.obtenerEfectividad2TipoAtaqueJugador(movimientoUsado);  //Si posee dos tipos
+    }
+
     // console.log("ataque:",  ataque)
     //  console.log("defensa: ",defensa)
     //  console.log("nivel:", nivel)
@@ -222,7 +228,12 @@ export class BatallaService {
     let variacion = Math.floor(Math.random() * (100 - 85)) + 86;  //Random 
 
     //Puede tomar los valores de 0, 0.25, 0.5, 1, 2 y 4
-    let efectividad = this.obtenerEfectividadAtaqueRival(movimientoUsado);
+    let efectividad = 0;
+    if (this.actualPokemon.tipo2 == null) {
+      efectividad = this.obtenerEfectividad1TipoAtaqueRival(movimientoUsado);  //Si solo posee un tipo
+    } else {
+      efectividad = this.obtenerEfectividad2TipoAtaqueRival(movimientoUsado);  //Si posee dos tipos
+    }
     // console.log("ataque:",  ataque)
     //  console.log("defensa: ",defensa)
     //  console.log("nivel:", nivel)
@@ -252,7 +263,6 @@ export class BatallaService {
         }
 
       } else {
-        // this.toastr.error("Ha fallado el movimiento ",'Error') ;
         return null;
       }
     } else {  //Ataque falla
@@ -276,12 +286,12 @@ export class BatallaService {
         break;
       }
       case "bajaAtaque2": {
-        this.actualPokemonRival.batalla.ataque = this.actualPokemonRival.ataque.defensa-6;
+        this.actualPokemonRival.batalla.ataque = this.actualPokemonRival.ataque.defensa - 6;
         this.toastr.warning("Ha bajado mucho el ataque del rival!!! ", '');
         break;
       }
       case "bajaDefensa": {
-        this.actualPokemonRival.batalla.defensa = this.actualPokemonRival.batalla.defensa-3;
+        this.actualPokemonRival.batalla.defensa = this.actualPokemonRival.batalla.defensa - 3;
         this.toastr.warning("Ha bajado la defensa del rival!!! ", '');
         break;
       }
@@ -289,13 +299,13 @@ export class BatallaService {
         //Le reduce la precision a todos los movimientos del pokemon rival
         for (let index = 0; index < this.actualPokemonRival.movimientosBatalla.length; index++) {
           let move = this.actualPokemonRival.movimientosBatalla[index];
-          move.precisión = move.precisión-8; 
+          move.precisión = move.precisión - 8;
         }
         this.toastr.warning("Ha bajado la precisión del rival!!! ", '');
         break;
       }
       case "bajaVelocidad": {
-        this.actualPokemonRival.batalla.velocidad = this.actualPokemonRival.batalla.velocidad-3;
+        this.actualPokemonRival.batalla.velocidad = this.actualPokemonRival.batalla.velocidad - 3;
         this.toastr.warning("Ha bajado la velocidad del rival!!! ", '');
         break;
       }
@@ -393,9 +403,7 @@ export class BatallaService {
     }
   }
 
-  obtenerEfectividadAtaqueJugador(movimientoUsado) {
-    //Falta obtener efectividad con base al segundo tipo del pokemon al que se ataca
-
+  obtenerEfectividad1TipoAtaqueJugador(movimientoUsado) {
     let tipo = movimientoUsado.tipo;
     let tipoPokemon = this.actualPokemonRival.tipo1;
 
@@ -414,9 +422,47 @@ export class BatallaService {
     }
   }
 
-  obtenerEfectividadAtaqueRival(movimientoUsado) {
-    //Falta obtener efectividad con base al segundo tipo del pokemon al que se ataca
+  obtenerEfectividad2TipoAtaqueJugador(movimientoUsado) {
+    let tipo = movimientoUsado.tipo;
+    let tipo1Pokemon = this.actualPokemonRival.tipo1;
+    let tipo2Pokemon = this.actualPokemonRival.tipo2;
 
+    let efect1 = 0;
+    let efect2 = 0;
+
+    //Primero busca la efectividad del primer tipo
+    for (let index = 0; index < this.tablaTipos.length; index++) {
+      let tipoTabla = this.tablaTipos[index];
+      if (tipoTabla.tipo == tipo) { //Si es el mismo tipo del ataque usado, se halla la efectividad del movimiento
+        for (let j = 0; j < tipoTabla['atacando_A_tipo'].length; j++) {
+          let tipoDefendiendo = tipoTabla['atacando_A_tipo'][j];
+          let typ = Object.keys(tipoDefendiendo)[0];
+          if (typ == tipo1Pokemon) {
+            efect1 = tipoDefendiendo[typ];
+          }
+        }
+      }
+    }
+    //Luego busca la efectividad del segundo tipo
+    for (let index = 0; index < this.tablaTipos.length; index++) {
+      let tipoTabla = this.tablaTipos[index];
+      if (tipoTabla.tipo == tipo) { //Si es el mismo tipo del ataque usado, se halla la efectividad del movimiento
+        for (let j = 0; j < tipoTabla['atacando_A_tipo'].length; j++) {
+          let tipoDefendiendo = tipoTabla['atacando_A_tipo'][j];
+          let typ = Object.keys(tipoDefendiendo)[0];
+          if (typ == tipo2Pokemon) {
+            efect2 = tipoDefendiendo[typ];
+          }
+        }
+      }
+    }
+    let total = this.validarEfectividadAtaqueDobleTipo(efect1, efect2);
+    console.log("Efect: ", total)
+    return total;
+  }
+
+  obtenerEfectividad1TipoAtaqueRival(movimientoUsado) {
+    //Falta obtener efectividad con base al segundo tipo del pokemon al que se ataca
     let tipo = movimientoUsado.tipo;
     let tipoPokemon = this.actualPokemon.tipo1;
 
@@ -431,6 +477,84 @@ export class BatallaService {
           }
         }
       }
+    }
+  }
+
+  obtenerEfectividad2TipoAtaqueRival(movimientoUsado) {
+    let tipo = movimientoUsado.tipo;
+    let tipo1Pokemon = this.actualPokemon.tipo1;
+    let tipo2Pokemon = this.actualPokemon.tipo2;
+
+    let efect1 = 0;
+    let efect2 = 0;
+
+    //Primero busca la efectividad del primer tipo
+    for (let index = 0; index < this.tablaTipos.length; index++) {
+      let tipoTabla = this.tablaTipos[index];
+      if (tipoTabla.tipo == tipo) { //Si es el mismo tipo del ataque usado, se halla la efectividad del movimiento
+        for (let j = 0; j < tipoTabla['atacando_A_tipo'].length; j++) {
+          let tipoDefendiendo = tipoTabla['atacando_A_tipo'][j];
+          let typ = Object.keys(tipoDefendiendo)[0];
+          if (typ == tipo1Pokemon) {
+            efect1 = tipoDefendiendo[typ];
+          }
+        }
+      }
+    }
+    //Luego busca la efectividad del segundo tipo
+    for (let index = 0; index < this.tablaTipos.length; index++) {
+      let tipoTabla = this.tablaTipos[index];
+      if (tipoTabla.tipo == tipo) { //Si es el mismo tipo del ataque usado, se halla la efectividad del movimiento
+        for (let j = 0; j < tipoTabla['atacando_A_tipo'].length; j++) {
+          let tipoDefendiendo = tipoTabla['atacando_A_tipo'][j];
+          let typ = Object.keys(tipoDefendiendo)[0];
+          if (typ == tipo2Pokemon) {
+            efect2 = tipoDefendiendo[typ];
+          }
+        }
+      }
+    }
+    let total = this.validarEfectividadAtaqueDobleTipo(efect1, efect2);
+    console.log("Efect: ", total)
+    return total;
+  } 
+
+
+  validarEfectividadAtaqueDobleTipo(efect1, efect2) {
+
+    if (efect1 == 0 || efect2 == 0) {
+      return 0;
+    }
+
+    if (efect1 == 2 && efect2 == 2) {
+      return 4;
+    }
+    if (efect1 == 1 && efect2 == 1) {
+      return 1;
+    }
+    if (efect1 == 0.5 && efect2 == 0.5) {
+      return 0.25;
+    }
+
+    if (efect1 == 1 && efect2 == 0.5) {
+      return 0.5;
+    }
+    if (efect1 == 0.5 && efect2 == 1) {
+      return 0.5;
+    }
+
+    if (efect1 ==1 && efect2 == 2) {
+      return 2;
+    }
+    if (efect1 ==2 && efect2 == 1) {
+      return 2;
+    }
+
+    if (efect1 ==2 && efect2 == 0.5) {
+      return 1;
+    }
+    if (efect1 ==0.5 && efect2 == 2) {
+      return 1;
     }
   }
 

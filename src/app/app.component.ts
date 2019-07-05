@@ -29,10 +29,11 @@ export class AppComponent {
   infoPokemon = false;
   datosMostrar = false;
   muestraBotonAtras = true;
-
+  statsMovesMostrar= false;
 
   temporizador = 20; //20 segundos por turno
   selectValor = 6;  //Cantidad de pokemones a usar por default
+  idx=0;
 
 
   audioOpening = "http://23.237.126.42/ost/pokemon-gameboy-sound-collection/vvdpydwp/101-opening.mp3";
@@ -69,6 +70,13 @@ export class AppComponent {
     this.muestraPokemonCambio = false;
     this.menuBatalla = true;
     (<HTMLImageElement>document.getElementById("sideMenu")).className = "sidenav";
+  }
+
+  muestraStast(idx){
+    this.statsMovesMostrar= true;
+    (<HTMLImageElement>document.getElementById("infoPokedexCard")).className = "infoStastMOvePokemon";
+    this.idx=idx;
+    
   }
 
 
@@ -190,7 +198,6 @@ export class AppComponent {
     if (!empiezaJugador) { //Empieza rival
       setTimeout(() => {
         this.cambiaTurno();
-        this.toastr.warning("Turno del rival", '');
         this.atacaPokemoRival(movimientoRival);
       }, 400);
 
@@ -212,7 +219,6 @@ export class AppComponent {
       this.luchaMovimiento(pokemonMov);
       setTimeout(() => {
         if (this.batalla.actualPokemonRival.batalla.ps > 0) {
-          this.toastr.warning("Turno del rival", '');
           this.atacaPokemoRival(movimientoRival);
           setTimeout(() => {
             this.cambiaTurno()
@@ -233,9 +239,8 @@ export class AppComponent {
   turnoRivalPorCambio() {
     let movimientoRival = this.batalla.eligeAtaqueRival(); //Llama a metodo del servicio
     setTimeout(() => {
-      this.toastr.warning("Turno del rival", '');
       this.atacaPokemoRival(movimientoRival);
-    }, 1400);
+    }, 1500);
   }
 
 
@@ -260,7 +265,7 @@ export class AppComponent {
         //Llama el metodo para obtener el daño del amovimiento usado
         let daño = this.batalla.atacaPokemon(mov);
         if (daño == null) {
-          this.toastr.error(this.batalla.actualPokemon.nombre + " ha usado " + mov.nombre + ",pero ha fallado", '');
+          this.toastr.error(this.batalla.actualPokemon.nombre + " ha usado " + mov.nombre + ",pero ha fallado",'');
         } else {
           this.toastr.success(this.batalla.actualPokemon.nombre + " ha usado " + mov.nombre, '');
         }
@@ -310,7 +315,7 @@ export class AppComponent {
 
     //Llama el metodo para obtener el daño del a¿movimiento usado
     let daño = this.batalla.atacaPokemonRival(movimiento);
-    this.toastr.success(this.batalla.actualPokemonRival.nombre + " ha usado " + movimiento.nombre, '');
+    this.toastr.warning(this.batalla.actualPokemonRival.nombre + " ha usado " + movimiento.nombre, '');
 
     let vidaActual = this.batalla.actualPokemon.batalla.ps;
     let newVida = vidaActual - daño;//Nueva vida obtenida del rival despues del daño recibido
@@ -341,7 +346,7 @@ export class AppComponent {
         this.setVidaJugador(newVida) //Llama metodo de setear vida Rival
         //this.cambiaTurno();
       }
-    }, 1400);
+    }, 1600);
   }
 
 
